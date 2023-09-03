@@ -5,6 +5,10 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+// destructuring: unpacking values from an array or object into seperate variables
+// break it down into a smaller data structure
+// used to retrieve elements from an array and structure them in a very simple way
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -27,3 +31,13 @@ const restaurant = {
     },
   },
 };
+
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[1];
+
+const [x, y, z] = arr; // destructuring assignment
+// whenever javascript sees the square brackets on the left side it is destructured // original array not afffected
+console.log(x, y, z); // 2, 3, 4
+// x becomes first, y second, z third
