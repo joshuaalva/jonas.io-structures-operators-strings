@@ -16,6 +16,12 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  order: function (starterIndex, mainIndex) {
+    // be careful with the way you type this out
+    // syntax & spelling
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -57,3 +63,5 @@ console.log(main, secondary);
 // with destructuring
 [main, secondary] = [secondary, main]; // do not need a temp variable in the middle
 console.log(main, secondary);
+
+console.log(restaurant.order(2, 0));
