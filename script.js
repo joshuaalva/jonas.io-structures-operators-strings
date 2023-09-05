@@ -41,3 +41,19 @@ const [x, y, z] = arr; // destructuring assignment
 // whenever javascript sees the square brackets on the left side it is destructured // original array not afffected
 console.log(x, y, z); // 2, 3, 4
 // x becomes first, y second, z third
+// original array is not effected
+console.log(arr);
+
+// const [first, second] = restaurant.categories; // italian, pizzeria
+let [main, , secondary] = restaurant.categories; // italian, vegetarian // the additional ,, skips one element
+console.log(main, secondary);
+
+//without destructuring
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary);
+
+// with destructuring
+[main, secondary] = [secondary, main]; // do not need a temp variable in the middle
+console.log(main, secondary);
