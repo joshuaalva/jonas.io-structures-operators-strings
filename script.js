@@ -65,3 +65,18 @@ console.log(main, secondary);
 console.log(main, secondary);
 
 console.log(restaurant.order(2, 0));
+// Recieve 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+// nested destructuring
+const nested = [2, 4, [5, 6]]; // nested one array inside of another array
+// const [i, , j] = nested; // i = 2 skips 4 and gives 5 / 6
+// console.log(i, j);
+const [i, , [j, k]] = nested;
+console.log(i, j, k); // nested desctructuring
+
+// default values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r); //  8 9 undefined
+// added default values with = 1
