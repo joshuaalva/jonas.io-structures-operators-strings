@@ -80,3 +80,4 @@ console.log(i, j, k); // nested desctructuring
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r); //  8 9 undefined
 // added default values with = 1
+// notes from lesson
