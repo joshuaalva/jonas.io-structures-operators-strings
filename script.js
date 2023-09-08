@@ -39,9 +39,9 @@ const restaurant = {
 };
 
 const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[1];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[1];
 
 const [x, y, z] = arr; // destructuring assignment
 // whenever javascript sees the square brackets on the left side it is destructured // original array not afffected
@@ -80,4 +80,29 @@ console.log(i, j, k); // nested desctructuring
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r); //  8 9 undefined
 // added default values with = 1
-// notes from lesson
+
+// object destructuring
+const { name, openingHours, categories } = restaurant;
+// same as arrays just using curly braces, and have to name the properties
+console.log(name, openingHours, categories); // giving them new varaible names
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// can be really useful to have default values
+// restaurant.menu would return undefined
+// especially helpful when you don't have data hard coded for example an api call
+// default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+restaurant;
+console.log(menu, starters);
+
+// mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+(let { a, b } = obj);
