@@ -105,4 +105,6 @@ console.log(menu, starters);
 let a = 111;
 let b = 999;
 const obj = { a: 23, b: 7, c: 14 };
+// cannot assign anything to a code block
+// wrap it into parenthesis to make it work
 (let { a, b } = obj);
