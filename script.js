@@ -133,3 +133,23 @@ const {
   fri: { open, close },
 } = openingHours;
 console.log(open, close);
+
+const arrr = [7, 8, 9];
+const badNewArr = [1, 2, arrr[0], arrr[1], arrr[2]];
+console.log(badNewArr);
+
+// Spread Operator
+
+const newArr = [1, 2, ...arrr];
+console.log(newArr);
+// takes values out of the arrr array and write them indiviudually in the array as if we had wrote them manually
+// whenever we need them individually we need the spread operator
+
+const newMenu = [...restaurant.mainMenu, 'Gnocchi']; // creating a completely new array from scratch not mutating
+console.log(newMenu); // spread operator does not create new variables can only use it when you would seperate values by commas
+
+// Copy Array
+const mainMenuCopy = [...restaurant.mainMenu]; // created a shallow copy of this array
+// Join 2 or more arrays together
+const menu2 = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu2);
