@@ -192,3 +192,5 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name); // ristorante roma
 console.log(restaurant.name); // classico italiano
+
+// Rest pattern and parameters
