@@ -33,6 +33,10 @@ const restaurant = {
     );
   },
 
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -153,3 +157,38 @@ const mainMenuCopy = [...restaurant.mainMenu]; // created a shallow copy of this
 // Join 2 or more arrays together
 const menu2 = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu2);
+
+// spread operator works on all iterables
+// iterables are things like arrays, strings, maps, sets but not objects
+// most of the built in structures in js but NOT objects
+
+const str = `Jonas`;
+const letters = [...str, '', 'S.'];
+console.log(letters);
+
+console.log(...str);
+// console.log('j', 'o');
+
+// real-world example
+
+const ingredients = [
+  // prompt(`Let's make pasta! Ingredient 1`),
+  // prompt(`Let's make pasta! Ingredient 2`),
+  // prompt(`Let's make pasta! Ingredient 3`),
+];
+
+console.log(ingredients);
+
+// same output spread operator is that much better
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+
+//Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Giuseppe' };
+console.log(newRestaurant);
+
+// shallow copy and resassigned
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name); // ristorante roma
+console.log(restaurant.name); // classico italiano
