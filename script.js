@@ -194,3 +194,4 @@ console.log(restaurantCopy.name); // ristorante roma
 console.log(restaurant.name); // classico italiano
 
 // Rest pattern and parameters
+// same syntax as the spread operator but does the opposite
