@@ -37,6 +37,10 @@ const restaurant = {
     console.log(`here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
 
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -59,6 +63,8 @@ restaurant.orderDelivery({
   mainIndex: 2,
   starterIndex: 2,
 });
+
+// Destructuring
 
 // const arr = [2, 3, 4];
 // // const a = arr[0];
@@ -202,3 +208,37 @@ console.log(arr3);
 
 const [j, k, ...others] = [1, 2, 3, 4, 5]; // rest syntax left hand side of operator
 console.log(j, k, others); // will take remaining elements and put them in a new array
+
+const [pizza, , risotto, ...otherFoods] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFoods);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+console.log(sat);
+
+// 2 Functions
+
+//rest parameters
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olive', 'spinach');
+
+// rest and spread look exactly the same but they work in opposite ways depending on where they are used
+// the spread operator is used where we would otherwise write values
+// the rest operator is used where variable names go seperated by commes
