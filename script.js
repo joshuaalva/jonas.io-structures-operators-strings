@@ -242,3 +242,5 @@ restaurant.orderPizza('mushrooms', 'onion', 'olive', 'spinach');
 // rest and spread look exactly the same but they work in opposite ways depending on where they are used
 // the spread operator is used where we would otherwise write values
 // the rest operator is used where variable names go seperated by commes
+
+//Short Circuiting && and II
