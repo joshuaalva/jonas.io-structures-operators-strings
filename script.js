@@ -244,3 +244,16 @@ restaurant.orderPizza('mushrooms', 'onion', 'olive', 'spinach');
 // the rest operator is used where variable names go seperated by commes
 
 //Short Circuiting && and II
+
+// 3 Properties of Logical Operators
+// Can use any data type
+// They can return any data type
+// Short-circuiting or short circuit evaluation
+
+console.log(3 || 'jonas');
+// short circuiting means if the first value is truthy that is what it will return
+// Expected output: 3 // other property will  not even be evaluated
+
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
