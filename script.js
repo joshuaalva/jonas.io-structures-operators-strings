@@ -28,9 +28,10 @@ const restaurant = {
     time = '20:00',
     address,
   }) {
-    console.log(
-      `Order recieived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
+    console
+      .log
+      // `Order recieived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+      ();
   },
 
   orderPasta: function (ing1, ing2, ing3) {
@@ -64,13 +65,13 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
 // Nullish: null and undefined (not 0 or '')
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
 // Destructuring
 
@@ -291,3 +292,27 @@ console.log(guestCorrect);
 // or operator will return first truthy value or last if all are falsey
 // and operator will return the first falsey or last value if they are all truthy
 // can use or to set default values
+
+// Logical Assignment Operators
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// this works because of short circuiting
+// if first value is truthy it will be returned and second not even evaluated
+rest2.numGuests = rest1.numGuests || 10;
+
+console.log(rest2.numGuests); // output: 20
+
+// logical assignment operator
+// OR assignment operator
+
+rest1.numGuests ||= 10; // more concise way
+rest2.numGuest;
