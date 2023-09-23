@@ -64,6 +64,14 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (not 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
 // Destructuring
 
 // const arr = [2, 3, 4];
@@ -203,41 +211,41 @@ restaurant.orderDelivery({
 // same syntax as the spread operator but does the opposite
 // spread is to unpack an array while spread is to pack
 
-const arr3 = [1, 2, ...[3, 4]]; // spread because on right hand side of assignment operator
-console.log(arr3);
+// const arr3 = [1, 2, ...[3, 4]]; // spread because on right hand side of assignment operator
+// console.log(arr3);
 
-const [j, k, ...others] = [1, 2, 3, 4, 5]; // rest syntax left hand side of operator
-console.log(j, k, others); // will take remaining elements and put them in a new array
+// const [j, k, ...others] = [1, 2, 3, 4, 5]; // rest syntax left hand side of operator
+// console.log(j, k, others); // will take remaining elements and put them in a new array
 
-const [pizza, , risotto, ...otherFoods] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
+// const [pizza, , risotto, ...otherFoods] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
 
-console.log(pizza, risotto, otherFoods);
+// console.log(pizza, risotto, otherFoods);
 
 // Objects
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
-console.log(sat);
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+// console.log(sat);
 
 // 2 Functions
 
 //rest parameters
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-  console.log(sum);
-};
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
 
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
 
-const x = [23, 5, 7];
-add(...x);
+// const x = [23, 5, 7];
+// add(...x);
 
-restaurant.orderPizza('mushrooms', 'onion', 'olive', 'spinach');
+// restaurant.orderPizza('mushrooms', 'onion', 'olive', 'spinach');
 
 // rest and spread look exactly the same but they work in opposite ways depending on where they are used
 // the spread operator is used where we would otherwise write values
@@ -250,10 +258,36 @@ restaurant.orderPizza('mushrooms', 'onion', 'olive', 'spinach');
 // They can return any data type
 // Short-circuiting or short circuit evaluation
 
-console.log(3 || 'jonas');
+// console.log(3 || 'jonas');
 // short circuiting means if the first value is truthy that is what it will return
 // Expected output: 3 // other property will  not even be evaluated
 
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello is the first truthy value // that's what get printed to the console
+
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
+
+// const guests2 = restaurant.numGuests || 10; // short-circuiting if it doesn't exist it will default to 10 >> or 10
+// console.log(guests2);
+
+// will not work if the number is 0 because it is a falsey value
+// there is a solution discussed later
+
+// console.log(`--- and ----`);
+// console.log(0 && `Jonas`); // returns 0 it short circuits never gets to jonas // opposite of what happens with or
+// console.log(7 && `Jonas`); // returns true if all operants are true returns Jonas
+// console.log(`Hello` && 23 && null && `Jonas`); // returns null... evaluation stops at the falsey value
+
+// Practical
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
+
+// or operator will return first truthy value or last if all are falsey
+// and operator will return the first falsey or last value if they are all truthy
+// can use or to set default values
