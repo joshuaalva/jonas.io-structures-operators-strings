@@ -295,21 +295,21 @@ restaurant.orderDelivery({
 
 // Logical Assignment Operators
 
-const rest1 = {
-  name: 'Capri',
-  numGuests: 0,
-};
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 0,
+// };
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
 // this works because of short circuiting
 // if first value is truthy it will be returned and second not even evaluated
-rest2.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest1.numGuests || 10;
 
-console.log(rest2.numGuests); // output: 20
+// console.log(rest2.numGuests); // output: 20
 
 // logical assignment operator
 // OR assignment operator
@@ -317,10 +317,46 @@ console.log(rest2.numGuests); // output: 20
 // rest2.numGuest ||= 10;
 
 // nullish assignment operator (null or undefined)
-rest1.numGuests ??= 10; // more concise way
-rest2.numGuest ??= 10;
+// rest1.numGuests ??= 10; // more concise way
+// rest2.numGuest ??= 10;
 
-rest2.owner = rest2.owner && `<ANONYMOUS`;
+// rest2.owner = rest2.owner && `<ANONYMOUS`;
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
+
+// Coding Challenge #1
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borussia Dortmund',
+
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+};
