@@ -297,7 +297,7 @@ restaurant.orderDelivery({
 
 const rest1 = {
   name: 'Capri',
-  numGuests: 20,
+  numGuests: 0,
 };
 
 const rest2 = {
@@ -313,6 +313,14 @@ console.log(rest2.numGuests); // output: 20
 
 // logical assignment operator
 // OR assignment operator
+// rest1.numGuests ||= 10; // more concise way
+// rest2.numGuest ||= 10;
 
-rest1.numGuests ||= 10; // more concise way
-rest2.numGuest;
+// nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10; // more concise way
+rest2.numGuest ??= 10;
+
+rest2.owner = rest2.owner && `<ANONYMOUS`;
+
+console.log(rest1);
+console.log(rest2);
