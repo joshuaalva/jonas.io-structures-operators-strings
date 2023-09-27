@@ -360,5 +360,3 @@ const game = {
     ],
   ],
 };
-
-// note taking and problem solving for challenge
