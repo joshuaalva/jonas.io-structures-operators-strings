@@ -360,3 +360,21 @@ const game = {
     ],
   ],
 };
+
+// 1. Create one player array for each team (variables'players1'and 'players2')
+const players1 = game.players[0];
+const players2 = game.players[1];
+console.log(`<-- each team has its own variables -->`);
+console.log(players1, players2);
+
+// 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+console.log(
+  `<-- destructure and create variables for gk and then ...restofteam -->`
+);
+const [gk, ...fieldPlayers] = game.players[0];
+console.log(gk, fieldPlayers);
+
+// 3. Create an array 'allPlayers'c ontaining all players of both teams(22 players)
+console.log(`<-- create an array of all the players 22 total -->`);
+const [allPlayers] = [game.players];
+console.log(allPlayers);
