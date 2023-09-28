@@ -362,8 +362,9 @@ const game = {
 };
 
 // 1. Create one player array for each team (variables'players1'and 'players2')
-const players1 = game.players[0];
-const players2 = game.players[1];
+const [players1, players2] = game.players;
+// const players1 = game.players[0];
+// const players2 = game.players[1];
 console.log(`<-- each team has its own variables -->`);
 console.log(players1, players2);
 
@@ -371,10 +372,12 @@ console.log(players1, players2);
 console.log(
   `<-- destructure and create variables for gk and then ...restofteam -->`
 );
-const [gk, ...fieldPlayers] = game.players[0];
+const [gk, ...fieldPlayers] = players1;
 console.log(gk, fieldPlayers);
 
-// 3. Create an array 'allPlayers'c ontaining all players of both teams(22 players)
+// 3. Create an array 'allPlayers' containing all players of both teams(22 players)
 console.log(`<-- create an array of all the players 22 total -->`);
-const [allPlayers] = [game.players];
+const allPlayers = [...players1, ...players2];
 console.log(allPlayers);
+
+// 4. During the game,BayernMunich(team1) used 3 substitute players.So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
