@@ -381,3 +381,11 @@ const allPlayers = [...players1, ...players2];
 console.log(allPlayers);
 
 // 4. During the game,BayernMunich(team1) used 3 substitute players.So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(
+  `<-- contains all the original team1 players plus thiago, coutinho, and perisic -->`
+);
+console.log(players1Final);
+
+// 5. Based on the game.oddsobject, create one variable for each odd(called 'team1', 'draw' and 'team2')
