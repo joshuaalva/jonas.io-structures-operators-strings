@@ -359,6 +359,12 @@ const game = {
       'Gotze',
     ],
   ],
+
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 };
 
 // 1. Create one player array for each team (variables'players1'and 'players2')
@@ -389,3 +395,13 @@ console.log(
 console.log(players1Final);
 
 // 5. Based on the game.oddsobject, create one variable for each odd(called 'team1', 'draw' and 'team2')
+// I originally destructured it as an array when it should've been an object do a better job of reading the actual challenge
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(
+  `<-- create one variable called team1, draw, team2 based on objects.oddsobject`
+);
+console.log(team1, draw, team2);
+
+// 6. Write a function('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
