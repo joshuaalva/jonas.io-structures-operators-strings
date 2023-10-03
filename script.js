@@ -365,6 +365,15 @@ const game = {
     x: 3.25,
     team2: 6.5,
   },
+
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 };
 
 // 1. Create one player array for each team (variables'players1'and 'players2')
@@ -405,8 +414,16 @@ console.log(
 console.log(team1, draw, team2);
 
 // 6. Write a function('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
-function printGoals() {
-  for (let i = 0; i < allPlayers.length; i++) {
-    console.log(allPlayers[i]);
-  }
-}
+console.log(
+  `<-- arbitray number of player names and prints each of them to the console, along with the numbers of goals scored in total -->`
+);
+
+const printGoals = function () {
+  console.log(`${players.length} goals were scored`);
+};
+
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals('Davies', 'Muller');
+printGoals(...game.scored);
+
+// 7.
