@@ -418,7 +418,7 @@ console.log(
   `<-- arbitray number of player names and prints each of them to the console, along with the numbers of goals scored in total -->`
 );
 
-const printGoals = function () {
+const printGoals = function (...players) {
   console.log(`${players.length} goals were scored`);
 };
 
@@ -426,4 +426,10 @@ printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 printGoals('Davies', 'Muller');
 printGoals(...game.scored);
 
-// 7.
+// 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator
+
+console.log(`<-- team with lower odds is more likely to win -->`);
+
+team1 < team2 && console.log(`Team 1 is more likely to win`);
+
+// Destructuring Arrays... again.
