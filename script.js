@@ -327,110 +327,187 @@ restaurant.orderDelivery({
 
 // Coding Challenge #1
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borussia Dortmund',
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borussia Dortmund',
 
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
 
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
 
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// 1. Create one player array for each team (variables'players1'and 'players2')
-const [players1, players2] = game.players;
-// const players1 = game.players[0];
-// const players2 = game.players[1];
-console.log(`<-- each team has its own variables -->`);
-console.log(players1, players2);
+// // 1. Create one player array for each team (variables'players1'and 'players2')
+// const [players1, players2] = game.players;
+// // const players1 = game.players[0];
+// // const players2 = game.players[1];
+// console.log(`<-- each team has its own variables -->`);
+// console.log(players1, players2);
 
-// 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
-console.log(
-  `<-- destructure and create variables for gk and then ...restofteam -->`
-);
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+// // 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+// console.log(
+//   `<-- destructure and create variables for gk and then ...restofteam -->`
+// );
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
-// 3. Create an array 'allPlayers' containing all players of both teams(22 players)
-console.log(`<-- create an array of all the players 22 total -->`);
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// // 3. Create an array 'allPlayers' containing all players of both teams(22 players)
+// console.log(`<-- create an array of all the players 22 total -->`);
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-// 4. During the game,BayernMunich(team1) used 3 substitute players.So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+// // 4. During the game,BayernMunich(team1) used 3 substitute players.So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
 
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-console.log(
-  `<-- contains all the original team1 players plus thiago, coutinho, and perisic -->`
-);
-console.log(players1Final);
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// console.log(
+//   `<-- contains all the original team1 players plus thiago, coutinho, and perisic -->`
+// );
+// console.log(players1Final);
 
-// 5. Based on the game.oddsobject, create one variable for each odd(called 'team1', 'draw' and 'team2')
-// I originally destructured it as an array when it should've been an object do a better job of reading the actual challenge
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
-console.log(
-  `<-- create one variable called team1, draw, team2 based on objects.oddsobject`
-);
-console.log(team1, draw, team2);
+// // 5. Based on the game.oddsobject, create one variable for each odd(called 'team1', 'draw' and 'team2')
+// // I originally destructured it as an array when it should've been an object do a better job of reading the actual challenge
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(
+//   `<-- create one variable called team1, draw, team2 based on objects.oddsobject`
+// );
+// console.log(team1, draw, team2);
 
-// 6. Write a function('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
-console.log(
-  `<-- arbitray number of player names and prints each of them to the console, along with the numbers of goals scored in total -->`
-);
+// // 6. Write a function('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+// console.log(
+//   `<-- arbitray number of player names and prints each of them to the console, along with the numbers of goals scored in total -->`
+// );
 
-const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored`);
-};
+// const printGoals = function (...players) {
+//   console.log(`${players.length} goals were scored`);
+// };
 
-printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-printGoals('Davies', 'Muller');
-printGoals(...game.scored);
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals('Davies', 'Muller');
+// printGoals(...game.scored);
 
-// 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator
+// // 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator
 
-console.log(`<-- team with lower odds is more likely to win -->`);
+// console.log(`<-- team with lower odds is more likely to win -->`);
 
-team1 < team2 && console.log(`Team 1 is more likely to win`);
+// team1 < team2 && console.log(`Team 1 is more likely to win`);
 
 // Destructuring Arrays... again.
-//
+// Basic Syntax and jS features but focus on more updated features
+
+// destructuring is basically a way of unpacking values from an array or object into seperate variables
+// recieve elements from the array and store them into variables
+
+// const arr = [2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+// console.log(a, b, c);
+
+// desctructuring the array
+// array is on the left side of the equal sign
+// knows it should do destructuring don't forget to declare the variables
+// original array is not effected
+// const [x, y, z] = arr;
+// console.log(x, y, z);
+
+// to skip an element in the original array you can leave a gap with commas
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+
+// Switching Variables
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
+
+// recieve to return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+// Nested Destructuring
+const nested = [2, 4, [5, 6]];
+// const [i, , j] = nested;
+// console.log(i, j);
+
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+// const nested2 = [1, 2, [4, 5, 6]];
+// const [a, , [b, c, d]] = nested2;
+// console.log(a, b, c, d); // 1, 4, 5, 6
+
+// Default Values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
+
+// Destructuring Objects
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+
+console.log(name, openingHours, categories);
+
+// Default Values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters); // default value [] for menu
+
+// Mutating Variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
+console.log(a, b);
+
+// Nested Objects
+
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c); // 11 23
+
+// Spread Operator
