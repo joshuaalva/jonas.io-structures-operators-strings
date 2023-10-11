@@ -452,62 +452,79 @@ restaurant.orderDelivery({
 // console.log(x, y, z);
 
 // to skip an element in the original array you can leave a gap with commas
-let [main, , secondary] = restaurant.categories;
-console.log(main, secondary);
+// let [main, , secondary] = restaurant.categories;
+// console.log(main, secondary);
 
 // Switching Variables
-[main, secondary] = [secondary, main];
-console.log(main, secondary);
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
 
 // recieve to return values from a function
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter, mainCourse);
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log(starter, mainCourse);
 
 // Nested Destructuring
-const nested = [2, 4, [5, 6]];
+// const nested = [2, 4, [5, 6]];
 // const [i, , j] = nested;
 // console.log(i, j);
 
-const [i, , [j, k]] = nested;
-console.log(i, j, k);
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k);
 
 // const nested2 = [1, 2, [4, 5, 6]];
 // const [a, , [b, c, d]] = nested2;
 // console.log(a, b, c, d); // 1, 4, 5, 6
 
 // Default Values
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
 
 // Destructuring Objects
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
 
-console.log(name, openingHours, categories);
+// console.log(name, openingHours, categories);
 
-// Default Values
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters); // default value [] for menu
+// // Default Values
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters); // default value [] for menu
 
-// Mutating Variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
-({ a, b } = obj);
-console.log(a, b);
+// // Mutating Variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+// ({ a, b } = obj);
+// console.log(a, b);
 
-// Nested Objects
+// // Nested Objects
 
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c); // 11 23
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c); // 11 23
+
+// Destructuring Arrays Practice
+
+const arr = [1, 2, 3, 4, 5];
+console.log(arr);
+const [a, b, c, d] = arr;
+console.log(a);
+
+// Nested Destructuring
+const arr2 = [1, 2, 3, [4, 5, 6]];
+const [e, f, g, [h, i, j]] = arr2;
+console.log(e, f, g, h, i, j);
+
+// Objects Destructuring Practice
+// Mutating starterMenu Property
+const { starterMenu: menu, name, openingHours, categories } = restaurant;
+console.log(menu, name, openingHours, categories);
 
 // Spread Operator
