@@ -662,85 +662,107 @@ const restaurant = {
 
 // Coding Challenge #1 Pt. II
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borussia Dortmund',
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borussia Dortmund',
 
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
 
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
 
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
 // 1
-const players1 = [...game.players[0]];
-const players2 = [...game.players[1]];
-console.log(players1, players2);
+// const players1 = [...game.players[0]];
+// const players2 = [...game.players[1]];
+// console.log(players1, players2);
 
 // 2
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
 // 3
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers); //22
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers); //22
 
 // 4
-const playersFinal = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-console.log(playersFinal); //14
+// const playersFinal = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// console.log(playersFinal); //14
 
 // 5
-const { team1, x: draw, team2 } = game.odds; // set default value of x to draw for this to work
-console.log(team1, draw, team2);
+// const { team1, x: draw, team2 } = game.odds; // set default value of x to draw for this to work
+// console.log(team1, draw, team2);
 
 // 6
-const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored`);
-};
+// const printGoals = function (...players) {
+//   console.log(`${players.length} goals were scored`);
+// };
 
-printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-printGoals('Davies', 'Muller');
-printGoals(...game.scored);
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals('Davies', 'Muller');
+// printGoals(...game.scored);
 
 // 7
 
-team1 < team2 && console.log(`Team 1 is more likely to win`);
+// team1 < team2 && console.log(`Team 1 is more likely to win`);
+
+// Looping Arrays the For-Of Loop
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for of loop
+for (const item of menu) console.log(item);
+// "for item of the menu"
+
+// for loop
+// for (let i = 0; i < menu.length; i++) {
+//   console.log(menu[i]);
+// }
+
+// a bit of a pain when we need an index in the for of loop
+// but it is possible
+
+// for (const item of menu.entries()) {
+//   console.log(item);
+// }
+
+// console.log(...menu.entries());
