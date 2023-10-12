@@ -65,6 +65,26 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 
+// Real world example
+// const ingredients = [
+//   prompt(`Let's make pasta! Ingredient 1?`),
+//   prompt(`Let's make pasta! Ingredient 2?`),
+//   prompt(`Let's make pasta! Ingredient 3?`),
+// ];
+
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Giuseppe' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = `Ristorante Roma`;
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
 // restaurant.numGuests = 0;
 // const guests = restaurant.numGuests || 10;
 // console.log(guests);
@@ -512,19 +532,51 @@ restaurant.orderDelivery({
 
 // Destructuring Arrays Practice
 
-const arr = [1, 2, 3, 4, 5];
-console.log(arr);
-const [a, b, c, d] = arr;
-console.log(a);
+// const arr = [1, 2, 3, 4, 5];
+// console.log(arr);
+// const [a, b, c, d] = arr;
+// console.log(a);
 
 // Nested Destructuring
-const arr2 = [1, 2, 3, [4, 5, 6]];
-const [e, f, g, [h, i, j]] = arr2;
-console.log(e, f, g, h, i, j);
+// const arr2 = [1, 2, 3, [4, 5, 6]];
+// const [e, f, g, [h, i, j]] = arr2;
+// console.log(e, f, g, h, i, j);
 
 // Objects Destructuring Practice
 // Mutating starterMenu Property
-const { starterMenu: menu, name, openingHours, categories } = restaurant;
-console.log(menu, name, openingHours, categories);
+// const { starterMenu: menu, name, openingHours, categories } = restaurant;
+// console.log(menu, name, openingHours, categories);
 
 // Spread Operator
+
+const arr = [7, 8, 9];
+// manually having to add more to this arr original array
+const badArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badArr); // output: [1, 2, 7, 8, 9];
+
+const newArr = [1, 2, ...arr]; // spread operator ...
+// takes values out of original array and writes them out individually
+// spread operator ...
+console.log(newArr);
+console.log(...newArr); // logs individual elements of an array
+
+const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+console.log(restaurant.mainMenu);
+console.log(newMenu); // added Gnocchi to the main menu
+// spread operator builds a new array from scratch
+
+// Copy Array
+const mainMenuCopy = [...restaurant.mainMenu]; // created a shallow copy of an array
+
+// Join 2 Arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// iterables: arrays, strings, maps, sets... not objects
+const str = `Jonas`;
+const letter = [...str, '', 'S.'];
+console.log(letter);
+console.log(...str); // same as writing out 'j' 'o' etc...
+console.log(``);
+
+// Rest Pattern and Parameters
