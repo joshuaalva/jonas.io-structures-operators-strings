@@ -621,26 +621,126 @@ const restaurant = {
 
 // Short Circuiting && and ||
 
-console.log(3 || `Jonas`); // output: 3
-// once it reads true it stops or 'short-circuits'
+// console.log(3 || `Jonas`); // output: 3
+// // once it reads true it stops or 'short-circuits'
 
-console.log('' || `Jonas`); // jonas
-console.log(true || 0); // true
-console.log(undefined || null); // null
+// console.log('' || `Jonas`); // jonas
+// console.log(true || 0); // true
+// console.log(undefined || null); // null
 
 // this is to check is numGuests exist
 // if it does not it returns 10 after reading the ternary operator
 // return guests1 output 10 because numGuests does not actually exist
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-console.log(`<-- and -->`);
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
+// console.log(`<-- and -->`);
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
 
 // Practical Example
-if (restaurant.orderPizza) {
-  restaurant.orderPizza(`mushrooms`, `spinach`);
-}
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza(`mushrooms`, `spinach`);
+// }
 
-restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
+// restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
+
+// The Nullish Coalecing Operator
+// The nullish coalescing (??) operator is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+
+// const nullValue = null;
+// const emptyText = ""; // falsy
+// const someNumber = 42;
+
+// const valA = nullValue ?? "default for A";
+// const valB = emptyText ?? "default for B";
+// const valC = someNumber ?? 0;
+
+// console.log(valA); // "default for A"
+// console.log(valB); // "" (as the empty string is not null or undefined)
+// console.log(valC); // 42
+
+// Coding Challenge #1 Pt. II
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borussia Dortmund',
+
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+// 1
+const players1 = [...game.players[0]];
+const players2 = [...game.players[1]];
+console.log(players1, players2);
+
+// 2
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+// 3
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers); //22
+
+// 4
+const playersFinal = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(playersFinal); //14
+
+// 5
+const { team1, x: draw, team2 } = game.odds; // set default value of x to draw for this to work
+console.log(team1, draw, team2);
+
+// 6
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+};
+
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals('Davies', 'Muller');
+printGoals(...game.scored);
+
+// 7
+
+team1 < team2 && console.log(`Team 1 is more likely to win`);
