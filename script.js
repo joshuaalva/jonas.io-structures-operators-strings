@@ -65,6 +65,8 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+
 // Real world example
 // const ingredients = [
 //   prompt(`Let's make pasta! Ingredient 1?`),
@@ -77,13 +79,13 @@ restaurant.orderDelivery({
 // restaurant.orderPasta(...ingredients);
 
 // Objects
-const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Giuseppe' };
-console.log(newRestaurant);
+// const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Giuseppe' };
+// console.log(newRestaurant);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = `Ristorante Roma`;
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = `Ristorante Roma`;
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 // restaurant.numGuests = 0;
 // const guests = restaurant.numGuests || 10;
@@ -549,34 +551,70 @@ console.log(restaurant.name);
 
 // Spread Operator
 
-const arr = [7, 8, 9];
+// const arr = [7, 8, 9];
 // manually having to add more to this arr original array
-const badArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badArr); // output: [1, 2, 7, 8, 9];
+// const badArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badArr); // output: [1, 2, 7, 8, 9];
 
-const newArr = [1, 2, ...arr]; // spread operator ...
+// const newArr = [1, 2, ...arr]; // spread operator ...
 // takes values out of original array and writes them out individually
 // spread operator ...
-console.log(newArr);
-console.log(...newArr); // logs individual elements of an array
+// console.log(newArr);
+// console.log(...newArr); // logs individual elements of an array
 
-const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
-console.log(restaurant.mainMenu);
-console.log(newMenu); // added Gnocchi to the main menu
+// const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+// console.log(restaurant.mainMenu);
+// console.log(newMenu); // added Gnocchi to the main menu
 // spread operator builds a new array from scratch
 
 // Copy Array
-const mainMenuCopy = [...restaurant.mainMenu]; // created a shallow copy of an array
+// const mainMenuCopy = [...restaurant.mainMenu]; // created a shallow copy of an array
 
 // Join 2 Arrays
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
 
 // iterables: arrays, strings, maps, sets... not objects
-const str = `Jonas`;
-const letter = [...str, '', 'S.'];
-console.log(letter);
-console.log(...str); // same as writing out 'j' 'o' etc...
-console.log(``);
+// const str = `Jonas`;
+// const letter = [...str, '', 'S.'];
+// console.log(letter);
+// console.log(...str); // same as writing out 'j' 'o' etc...
+// console.log(``);
 
 // Rest Pattern and Parameters
+
+// 1. Destructuring
+
+// SPREAD, because on right side of equals sign
+const arr = [1, 2, ...[3, 4]];
+// REST, because on left side of equals
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2. Functions
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+// can also accept arrays
+const x = [23, 5, 7];
+add(...x);
