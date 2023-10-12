@@ -58,14 +58,14 @@ const restaurant = {
   },
 };
 
-restaurant.orderDelivery({
-  time: `22:30`,
-  address: `Via del Sole 21`,
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// restaurant.orderDelivery({
+//   time: `22:30`,
+//   address: `Via del Sole 21`,
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
-restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 
 // Real world example
 // const ingredients = [
@@ -586,35 +586,61 @@ restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // 1. Destructuring
 
 // SPREAD, because on right side of equals sign
-const arr = [1, 2, ...[3, 4]];
+// const arr = [1, 2, ...[3, 4]];
 // REST, because on left side of equals
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
 
-console.log(pizza, risotto, otherFood);
+// console.log(pizza, risotto, otherFood);
 
 // Objects
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
 
 // 2. Functions
 
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
 
-  console.log(sum);
-};
+//   console.log(sum);
+// };
 
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
 
 // can also accept arrays
-const x = [23, 5, 7];
-add(...x);
+// const x = [23, 5, 7];
+// add(...x);
+
+// Short Circuiting && and ||
+
+console.log(3 || `Jonas`); // output: 3
+// once it reads true it stops or 'short-circuits'
+
+console.log('' || `Jonas`); // jonas
+console.log(true || 0); // true
+console.log(undefined || null); // null
+
+// this is to check is numGuests exist
+// if it does not it returns 10 after reading the ternary operator
+// return guests1 output 10 because numGuests does not actually exist
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+console.log(`<-- and -->`);
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+// Practical Example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza(`mushrooms`, `spinach`);
+}
+
+restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
