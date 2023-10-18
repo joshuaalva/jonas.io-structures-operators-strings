@@ -783,3 +783,5 @@ const openingHours = {
     close: 24,
   },
 };
+
+// notes
