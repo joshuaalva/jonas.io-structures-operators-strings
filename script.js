@@ -762,7 +762,7 @@ const restaurant = {
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 // for of loop
-for (const item of menu) console.log(item);
+// for (const item of menu) console.log(item);
 // "for item of the menu"
 
 // for loop
@@ -784,3 +784,29 @@ for (const item of menu) console.log(item);
 // compute property names instead of writing them out literally
 
 // Optional Chaining
+
+// console.log(restaurant.openingHours.mon); //undefined
+// throw error does not exist
+// how do we know if it exist at all...?
+
+// console.log(restaurant.openingHours.mon.open);
+
+// this is checking for one property; just monday;
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// With optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+// only if the property is before the question mark
+// if it exist open property will be read
+// if not undefined will be return
+// exist if not null or undefined
+
+// Example
+const days = [`mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`];
+for (const day of days) {
+  console.log(day);
+  // day is coming dynamically
+  const open = restaurant.openingHours[day]?.open;
+  console.log(`one ${day}, we open at ${open}`);
+}
