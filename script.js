@@ -70,6 +70,30 @@ const restaurant = {
   // },
 };
 
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `We are open on ${properties.length} days of the week `;
+
+// for (const day of properties) {
+//   openStr += `${day}, `;
+// }
+
+// console.log(openStr);
+
+// Property Values
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// Entire Object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// [key, value]...
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
+
 // restaurant.orderDelivery({
 //   time: `22:30`,
 //   address: `Via del Sole 21`,
@@ -361,110 +385,132 @@ const restaurant = {
 
 // Coding Challenge #1
 
-// const game = {
-//   team1: 'Bayern Munich',
-//   team2: 'Borussia Dortmund',
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borussia Dortmund',
 
-//   players: [
-//     [
-//       'Neuer',
-//       'Pavard',
-//       'Martinez',
-//       'Alaba',
-//       'Davies',
-//       'Kimmich',
-//       'Goretzka',
-//       'Coman',
-//       'Muller',
-//       'Gnarby',
-//       'Lewandowski',
-//     ],
-//     [
-//       'Burki',
-//       'Schulz',
-//       'Hummels',
-//       'Akanji',
-//       'Hakimi',
-//       'Weigl',
-//       'Witsel',
-//       'Hazard',
-//       'Brandt',
-//       'Sancho',
-//       'Gotze',
-//     ],
-//   ],
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
 
-//   odds: {
-//     team1: 1.33,
-//     x: 3.25,
-//     team2: 6.5,
-//   },
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 
-//   score: '4:0',
-//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-//   date: 'Nov 9th, 2037',
-//   odds: {
-//     team1: 1.33,
-//     x: 3.25,
-//     team2: 6.5,
-//   },
-// };
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
 
-// // 1. Create one player array for each team (variables'players1'and 'players2')
-// const [players1, players2] = game.players;
-// // const players1 = game.players[0];
-// // const players2 = game.players[1];
-// console.log(`<-- each team has its own variables -->`);
-// console.log(players1, players2);
+// 1. Create one player array for each team (variables'players1'and 'players2')
+const [players1, players2] = game.players;
+// const players1 = game.players[0];
+// const players2 = game.players[1];
+console.log(`<-- each team has its own variables -->`);
+console.log(players1, players2);
 
-// // 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
-// console.log(
-//   `<-- destructure and create variables for gk and then ...restofteam -->`
-// );
-// const [gk, ...fieldPlayers] = players1;
-// console.log(gk, fieldPlayers);
+// 2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+console.log(
+  `<-- destructure and create variables for gk and then ...restofteam -->`
+);
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
 
-// // 3. Create an array 'allPlayers' containing all players of both teams(22 players)
-// console.log(`<-- create an array of all the players 22 total -->`);
-// const allPlayers = [...players1, ...players2];
-// console.log(allPlayers);
+// 3. Create an array 'allPlayers' containing all players of both teams(22 players)
+console.log(`<-- create an array of all the players 22 total -->`);
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
 
-// // 4. During the game,BayernMunich(team1) used 3 substitute players.So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+// 4. During the game,BayernMunich(team1) used 3 substitute players.So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
 
-// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-// console.log(
-//   `<-- contains all the original team1 players plus thiago, coutinho, and perisic -->`
-// );
-// console.log(players1Final);
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(
+  `<-- contains all the original team1 players plus thiago, coutinho, and perisic -->`
+);
+console.log(players1Final);
 
-// // 5. Based on the game.oddsobject, create one variable for each odd(called 'team1', 'draw' and 'team2')
-// // I originally destructured it as an array when it should've been an object do a better job of reading the actual challenge
-// const {
-//   odds: { team1, x: draw, team2 },
-// } = game;
-// console.log(
-//   `<-- create one variable called team1, draw, team2 based on objects.oddsobject`
-// );
-// console.log(team1, draw, team2);
+// 5. Based on the game.oddsobject, create one variable for each odd(called 'team1', 'draw' and 'team2')
+// I originally destructured it as an array when it should've been an object do a better job of reading the actual challenge
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(
+  `<-- create one variable called team1, draw, team2 based on objects.oddsobject`
+);
+console.log(team1, draw, team2);
 
-// // 6. Write a function('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
-// console.log(
-//   `<-- arbitray number of player names and prints each of them to the console, along with the numbers of goals scored in total -->`
-// );
+// 6. Write a function('printGoals') that receives an arbitrary number of player names (not an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+console.log(
+  `<-- arbitray number of player names and prints each of them to the console, along with the numbers of goals scored in total -->`
+);
 
-// const printGoals = function (...players) {
-//   console.log(`${players.length} goals were scored`);
-// };
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+};
 
-// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-// printGoals('Davies', 'Muller');
-// printGoals(...game.scored);
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals('Davies', 'Muller');
+printGoals(...game.scored);
 
-// // 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator
+// 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, without using an if/else statement or the ternary operator
 
-// console.log(`<-- team with lower odds is more likely to win -->`);
+console.log(`<-- team with lower odds is more likely to win -->`);
 
-// team1 < team2 && console.log(`Team 1 is more likely to win`);
+team1 < team2 && console.log(`Team 1 is more likely to win`);
+
+console.log(`<-- Challenge 2 Start -->`);
+// Coding Challenge #2
+
+// 1. Loop over the game.scored array and print each player name to the console, along with the goal number
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
+}
+
+// 2. Use a loop to calculate the average odd and log it to the console
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
+
+// 3. Print the 3 odds to the console, but in a nice formatted way
+
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === `x` ? `draw` : `victor ${game[team]}`;
+  console.log(`Odd of ${teamStr}, ${odd}`);
+}
 
 // Destructuring Arrays... again.
 // Basic Syntax and jS features but focus on more updated features
@@ -789,24 +835,109 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 // throw error does not exist
 // how do we know if it exist at all...?
 
-// console.log(restaurant.openingHours.mon.open);
+// can do something like this
+// if (restaurant.openingHours.mon && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
+// we know friday exist so lets make sure it works
+// if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open); //output: 11
 
-// this is checking for one property; just monday;
-if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+// with optional chaining
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
+// only if the property before the question mark exist it will be read from there
+// if not undefined will be returned
+// a property exist if it is not null or undefined
 
-// With optional chaining
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours?.mon?.open);
-// only if the property is before the question mark
-// if it exist open property will be read
-// if not undefined will be return
-// exist if not null or undefined
+// example
+// const days = [`mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`];
+// for (const day of days) {
+//   // console.log(day);
+//   const open = restaurant.openingHours[day]?.open ?? `closed`;
+//   console.log(`On ${day} we open at ${open}`);
+// }
 
-// Example
-const days = [`mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`];
-for (const day of days) {
-  console.log(day);
-  // day is coming dynamically
-  const open = restaurant.openingHours[day]?.open;
-  console.log(`one ${day}, we open at ${open}`);
+// // Methods
+// console.log(restaurant.order?.(0, 1) ?? `Method does not exist`);
+// console.log(restaurant.orderRisotto?.(0, 1) ?? `Method does not exist`);
+
+// //Arrays
+// const users = [
+//   {
+//     name: `Joshua`,
+//     email: `Shweex@Josh.io`,
+//   },
+// ];
+
+// console.log(users[0]?.name ?? `Users array empty`); // does value on the left exist ??
+
+// optional chaining operator and knowledge coalescing operator!!
+
+// Looping Objects: Objects Keys, Values, Entries
+
+// Sets
+// Set: collection of unique values, can never have duplicates
+console.log(`<-- Sets -->`);
+const ordersSet = new Set([
+  `Pasta`,
+  `Pizza`,
+  `Pizza`,
+  `Risotto`,
+  `Pasta`,
+  `Pizza`,
+]);
+console.log(ordersSet); // output: Pasta, Pizza, Risotto... all of the duplicates are eliminated
+console.log(new Set(`Jonas`)); // output: 'J' 'o' 'n' 'a' 's'
+console.log(ordersSet.size); // output 3
+console.log(ordersSet.has(`Pizza`)); //true
+console.log(ordersSet.has(`Bread`)); //false
+ordersSet.add(`Garlic Bread`);
+ordersSet.add(`Garlic Bread`);
+ordersSet.delete(`Risotto`); // Past, Pizza, Garlic Bread
+console.log(ordersSet); // Garlic Bread got added but only one the second one got ignored
+//ordersSet.clear() ... deletes entire set
+
+for (const order of ordersSet) {
+  console.log(order);
 }
+
+// Main use of sets is to remove duplicate values
+// Example
+
+const staff = [`Waiter`, `Chef`, `Waiter`, `Manager`, `Chef`, `Waiter`];
+const staffUnique = [...new Set(staff)]; // spread creates a new array ... a set is an iterable
+console.log(staffUnique); // Waiter Chef Manager
+
+// Sets are not intended to replace arrays
+// Just use arrays for that
+// Sets have this useful property of being unique and the methods are straight forward
+// Keep sets in mind but use Arrays primarily
+
+// Maps
+console.log(`<-- Maps -->`);
+
+// cannot retrieve values of a set individually
+// if you need to do that just use an array
+
+const rest = new Map();
+// easiest way to create a new map is an empty map
+rest.set(`name`, `Classico Italiano`);
+rest.set(1, `Firenze, Italy`);
+rest.set(2, `Lisbon, Portugal`);
+
+rest
+  .set(`categories`, [`Italian`, `Pizzeria`, `Vegertarian`, `Organic`])
+  .set(`open`, 11)
+  .set(`close`, 23)
+  .set(true, `We are open :)`)
+  .set(false, `We are closed :(`);
+
+console.log(rest.get(`name`));
+// console.log(rest.get(true));
+
+// const time = 21;
+// console.log(rest.get(time > rest.get(`open`) && time < rest.get(`close`)));
+
+console.log(rest.has(`categories`)); //true
+console.log(rest.delete(2)); // console.log(rest);
+console.log(rest.size); //7
+// rest.clear(); // size of 0
