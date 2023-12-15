@@ -13,7 +13,27 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+
+    fri: {
+      open: 11,
+      close: 23,
+    },
+
+    sat: {
+      open: 0, // open 24 hours
+      close: 24,
+    },
+  },
 };
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 
 // destructuring is an ES6 feature is a way to unpack values from an array or an object into seperate variables
 // break a complex structure down into a smaller structure like a variable
