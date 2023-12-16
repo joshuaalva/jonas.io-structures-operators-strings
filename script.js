@@ -41,6 +41,10 @@ const restaurant = {
       `Order recieved ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time} `
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pata with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
 // destructuring is an ES6 feature is a way to unpack values from an array or an object into seperate variables
@@ -168,3 +172,27 @@ console.log(letters); // ['J', 'o', 'n', 'a', 's', '', 'S.']
 // const strExpand = `Joshua`;
 // const strExpandLetters = [...strExpand, `s`, `s`, `s`];
 // console.log(strExpandLetters); // ['J', 'o', 's', 'h', 'u', 'a', 's', 's', 's']
+
+// real world example
+const ingredients = [
+  // prompt(`Let's make pasta! Ingredient 1? `),
+  // prompt(`Let's make pasta! Ingredient 2? `),
+  // prompt(`Let's make pasta! Ingredient 3? `),
+];
+console.log(ingredients);
+
+// old way
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+
+// spread operator also works on objects even though they are not iterables
+// objects
+const newRestaurant = { ...restaurant, founder: `Giuseppe`, foundedIn: 1998 };
+console.log(newRestaurant);
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = `Ristorante Roma`;
+
+console.log(restaurantCopy.name); // Roma
+console.log(restaurant.name); // Italiano
+
+// <--------- Rest Pattern and Parameters  --------->
