@@ -30,24 +30,32 @@ const restaurant = {
       close: 24,
     },
   },
-};
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = `20:00`,
+    address,
+  }) {
+    console.log(
+      `Order recieved ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time} `
+    );
+  },
+};
 
 // destructuring is an ES6 feature is a way to unpack values from an array or an object into seperate variables
 // break a complex structure down into a smaller structure like a variable
 // for arrays retrieve information from arrays and break them down into variables
 
 // not using destructuing
-const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
+// const arr = [2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
 
 // with destructuring
-const [x, y, z] = arr;
-console.log(x, y, z);
+// const [x, y, z] = arr;
+// console.log(x, y, z);
 
 // do not have to take everything out
 let [main, , secondary] = restaurant.categories;
@@ -74,3 +82,89 @@ const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 
 // <--------- Destructuring Objects --------->
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+// if we wanted variable names to be different from the property names
+// have to set the property names first then use a colon to specifty a new name
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// default values -->
+// if we look for restaurant.menu it does not exist so instead of undefined it will return a [] empty array
+// can combine default values, starterMenu is now starters but if it did not exist it would return an []
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// mutating variables -->
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+// javascript when you start a line with curly braces expects a code block
+// the way around it is wrapping it in parenthesis
+// over rode let a and b
+({ a, b } = obj);
+console.log(a, b);
+
+// nested objects -->
+
+// const { fri } = openingHours;
+// console.log(fri); // returns open: 11, close: 23 // but we want two seperate variables
+
+// this is how we do that
+const {
+  fri: { open, close },
+} = openingHours;
+
+console.log(open, close); // 11  23
+
+restaurant.orderDelivery({
+  time: `22:30`,
+  address: `Via del Sole, 21`,
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+// <--------- The Spread Operator ... --------->
+
+// can only use in places where other wise we would seperate values by commas -->
+
+const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+
+// takes the values of the original array and adds the automatically instead of manually like we did above
+// taking all the elements out of the array and writing them manually
+const newArr = [1, 2, ...arr]; //goodNewArr using the spread operator
+console.log(newArr);
+
+const newMenu = [...restaurant.mainMenu, `Gnocchi`]; // not mutating this builds a new array from scratch
+console.log(newMenu); // added gnocchi
+
+// two important cases of using the spread operator -->
+// create shallow copies of arrays
+// and merge two arrays together
+
+const mainMenuCopy = [...restaurant.mainMenu]; // creates a shadow copy of the main menu array
+
+// join 2 arrays
+// quick challenge use the spread operator to make one array of the entire menu
+const restMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(restMenu);
+
+// spread operator works on iterables -->
+// what is an iterable?
+//iterables are things like arrays, strings, maps, or sets but not objects. most of the built in structures in js but NOT objects.
+const str = `Jonas`;
+const letters = [...str, '', `S.`];
+console.log(letters); // ['J', 'o', 'n', 'a', 's', '', 'S.']
+
+// const strExpand = `Joshua`;
+// const strExpandLetters = [...strExpand, `s`, `s`, `s`];
+// console.log(strExpandLetters); // ['J', 'o', 's', 'h', 'u', 'a', 's', 's', 's']
