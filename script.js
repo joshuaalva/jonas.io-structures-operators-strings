@@ -196,3 +196,7 @@ console.log(restaurantCopy.name); // Roma
 console.log(restaurant.name); // Italiano
 
 // <--------- Rest Pattern and Parameters  --------->
+
+// Spread, because eon the RIGHT side of the = -->
+const spreadArr = [1, 2, ...[3, 4]];
+const [] = [1, 2, 3, 4, 5];
