@@ -197,6 +197,25 @@ console.log(restaurant.name); // Italiano
 
 // <--------- Rest Pattern and Parameters  --------->
 
-// Spread, because eon the RIGHT side of the = -->
+// Spread, because on the RIGHT side of the = -->
 const spreadArr = [1, 2, ...[3, 4]];
 const [] = [1, 2, 3, 4, 5];
+
+// Rest, because on the LEFT side of =
+// called rest because it will take rest of elements and then put them into a new array --> in this case 'others'
+const [x, y, ...others] = [1, 2, 3, 4, 5];
+console.log(x, y, others);
+
+// pizza, (skip), risotto, then the REST of the array elements
+// rest element must be that last element
+// one rest in any destructuring assignment
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// Objects -->
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays); // thu ... fri ... because we took saturday into it's own variable
