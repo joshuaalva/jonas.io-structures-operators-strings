@@ -45,6 +45,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pata with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 // destructuring is an ES6 feature is a way to unpack values from an array or an object into seperate variables
@@ -62,59 +67,59 @@ const restaurant = {
 // console.log(x, y, z);
 
 // do not have to take everything out
-let [main, , secondary] = restaurant.categories;
+// let [main, , secondary] = restaurant.categories;
 // to skip just leave a space
-console.log(main, secondary); // italian, vegetarian
+// console.log(main, secondary); // italian, vegetarian
 
 // switching variables
-[main, secondary] = [secondary, main];
-console.log(main, secondary); // vegetarian, italian
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary); // vegetarian, italian
 
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter, mainCourse); // garlic bread, pizza
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log(starter, mainCourse); // garlic bread, pizza
 
 // Nested Destructuring
-const nested = [2, 4, [5, 6]];
+// const nested = [2, 4, [5, 6]];
 // const [i, , j] = nested;
 // console.log(i, j);
 
-const [i, , [j, k]] = nested;
-console.log(i, j, k); // 2, 5, 6
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k); // 2, 5, 6
 
 // Default Values
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
 
 // <--------- Destructuring Objects --------->
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
 // if we wanted variable names to be different from the property names
 // have to set the property names first then use a colon to specifty a new name
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
 
 // default values -->
 // if we look for restaurant.menu it does not exist so instead of undefined it will return a [] empty array
 // can combine default values, starterMenu is now starters but if it did not exist it would return an []
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
 // mutating variables -->
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
 
 // javascript when you start a line with curly braces expects a code block
 // the way around it is wrapping it in parenthesis
 // over rode let a and b
-({ a, b } = obj);
-console.log(a, b);
+// ({ a, b } = obj);
+// console.log(a, b);
 
 // nested objects -->
 
@@ -122,100 +127,139 @@ console.log(a, b);
 // console.log(fri); // returns open: 11, close: 23 // but we want two seperate variables
 
 // this is how we do that
-const {
-  fri: { open, close },
-} = openingHours;
+// const {
+//   fri: { open, close },
+// } = openingHours;
 
-console.log(open, close); // 11  23
+// console.log(open, close); // 11  23
 
-restaurant.orderDelivery({
-  time: `22:30`,
-  address: `Via del Sole, 21`,
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// restaurant.orderDelivery({
+//   time: `22:30`,
+//   address: `Via del Sole, 21`,
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
 // <--------- The Spread Operator ... --------->
 
 // can only use in places where other wise we would seperate values by commas -->
 
-const arr = [7, 8, 9];
+// const arr = [7, 8, 9];
 // const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 // console.log(badNewArr);
 
 // takes the values of the original array and adds the automatically instead of manually like we did above
 // taking all the elements out of the array and writing them manually
-const newArr = [1, 2, ...arr]; //goodNewArr using the spread operator
-console.log(newArr);
+// const newArr = [1, 2, ...arr]; //goodNewArr using the spread operator
+// console.log(newArr);
 
-const newMenu = [...restaurant.mainMenu, `Gnocchi`]; // not mutating this builds a new array from scratch
-console.log(newMenu); // added gnocchi
+// const newMenu = [...restaurant.mainMenu, `Gnocchi`]; // not mutating this builds a new array from scratch
+// console.log(newMenu); // added gnocchi
 
 // two important cases of using the spread operator -->
 // create shallow copies of arrays
 // and merge two arrays together
 
-const mainMenuCopy = [...restaurant.mainMenu]; // creates a shadow copy of the main menu array
+// const mainMenuCopy = [...restaurant.mainMenu]; // creates a shadow copy of the main menu array
 
 // join 2 arrays
 // quick challenge use the spread operator to make one array of the entire menu
-const restMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(restMenu);
+// const restMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(restMenu);
 
 // spread operator works on iterables -->
 // what is an iterable?
 //iterables are things like arrays, strings, maps, or sets but not objects. most of the built in structures in js but NOT objects.
-const str = `Jonas`;
-const letters = [...str, '', `S.`];
-console.log(letters); // ['J', 'o', 'n', 'a', 's', '', 'S.']
+// const str = `Jonas`;
+// const letters = [...str, '', `S.`];
+// console.log(letters); // ['J', 'o', 'n', 'a', 's', '', 'S.']
 
 // const strExpand = `Joshua`;
 // const strExpandLetters = [...strExpand, `s`, `s`, `s`];
 // console.log(strExpandLetters); // ['J', 'o', 's', 'h', 'u', 'a', 's', 's', 's']
 
 // real world example
-const ingredients = [
-  // prompt(`Let's make pasta! Ingredient 1? `),
-  // prompt(`Let's make pasta! Ingredient 2? `),
-  // prompt(`Let's make pasta! Ingredient 3? `),
-];
-console.log(ingredients);
+// const ingredients = [
+// prompt(`Let's make pasta! Ingredient 1? `),
+// prompt(`Let's make pasta! Ingredient 2? `),
+// prompt(`Let's make pasta! Ingredient 3? `),
+// ];
+// console.log(ingredients);
 
 // old way
 // restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
-restaurant.orderPasta(...ingredients);
+// restaurant.orderPasta(...ingredients);
 
 // spread operator also works on objects even though they are not iterables
 // objects
-const newRestaurant = { ...restaurant, founder: `Giuseppe`, foundedIn: 1998 };
-console.log(newRestaurant);
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = `Ristorante Roma`;
+// const newRestaurant = { ...restaurant, founder: `Giuseppe`, foundedIn: 1998 };
+// console.log(newRestaurant);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = `Ristorante Roma`;
 
-console.log(restaurantCopy.name); // Roma
-console.log(restaurant.name); // Italiano
+// console.log(restaurantCopy.name); // Roma
+// console.log(restaurant.name); // Italiano
 
 // <--------- Rest Pattern and Parameters  --------->
 
 // Spread, because on the RIGHT side of the = -->
-const spreadArr = [1, 2, ...[3, 4]];
-const [] = [1, 2, 3, 4, 5];
+// const spreadArr = [1, 2, ...[3, 4]];
+// const [] = [1, 2, 3, 4, 5];
 
 // Rest, because on the LEFT side of =
 // called rest because it will take rest of elements and then put them into a new array --> in this case 'others'
-const [x, y, ...others] = [1, 2, 3, 4, 5];
-console.log(x, y, others);
+// const [x, y, ...others] = [1, 2, 3, 4, 5];
+// console.log(x, y, others);
 
 // pizza, (skip), risotto, then the REST of the array elements
 // rest element must be that last element
 // one rest in any destructuring assignment
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
 // Objects -->
 
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays); // thu ... fri ... because we took saturday into it's own variable
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays); // thu ... fri ... because we took saturday into it's own variable
+
+// Functions -->
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i]; // no semi-colon all on same line was giving an error
+//   console.log(sum);
+// };
+
+// add(5, 3, 7, 2);
+// add(2, 3);
+// add(8, 2, 5, 3, 2, 1, 4);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza(`mushroom`, `onion`, `olive`, `spinach`);
+
+// rest in spread look exactly the same but changes based on where they are used
+
+// <--------- Short Circuiting && and || --------->
+
+// Can use any data type
+// Return any data type
+// Short-Circuiting or Short-Circuit Evaluation
+
+console.log(3 || `Joshua`); // output: 3
+
+// if the first operant is truthy then the other will not be evaluated
+
+console.log(`` || `Joshua`);
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || `` || `Hello` || 23); // output: Hello
+
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// rest numguests doesnt exist default set to 10
+
+// another way we can do this instead of ternary
+const guest2 = restaurant.numGuests || 10;
