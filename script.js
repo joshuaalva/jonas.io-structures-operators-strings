@@ -248,18 +248,43 @@ const restaurant = {
 // Can use any data type
 // Return any data type
 // Short-Circuiting or Short-Circuit Evaluation
-
-console.log(3 || `Joshua`); // output: 3
+// console.log(`--- || ---`);
+// console.log(3 || `Joshua`); // output: 3
 
 // if the first operant is truthy then the other will not be evaluated
 
-console.log(`` || `Joshua`);
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || `` || `Hello` || 23); // output: Hello
+// console.log(`` || `Joshua`);
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || `` || `Hello` || 23); // output: Hello
 
-const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
 // rest numguests doesnt exist default set to 10
 
 // another way we can do this instead of ternary
-const guest2 = restaurant.numGuests || 10;
+// restaurant.numGuests = 0;
+// const guest2 = restaurant.numGuests || 10;
+
+// && also has short circuiting
+// console.log(`--- && ---`);
+// console.log(0 && `Joshua`); // 0
+// is falsy so stop running there complete opposite of or operator
+
+// console.log(`Hello` && 23 && null && `Joshua`); //null
+
+//practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza(`mushrooms`, `spinach`);
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
+
+// <--------- Nullish Coalescing Operator --------->
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// nullish: null and undefined (not 0 or empty strong)
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
