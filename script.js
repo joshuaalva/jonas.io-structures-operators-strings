@@ -281,10 +281,129 @@ const restaurant = {
 
 // <--------- Nullish Coalescing Operator --------->
 
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
 // nullish: null and undefined (not 0 or empty strong)
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
+
+// <--------- Logical Assignment Operators --------->
+
+// const rest1 = {
+//   name: `Capri`,
+//   numGuests: 0,
+// };
+
+// const rest2 = {
+//   name: `La Piazza`,
+//   owner: `Giovanni Rossi`,
+// };
+
+// rest1.numberGuests = rest1.numGuests || 10;
+// rest2.numberGuests = rest1.numGuests || 10;
+// this works because of short circuiting
+// if first value is truthy it will be returned and second value will not even be looked at
+
+// more concise
+// logical or assignment operator
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assignment operator
+// accounts for 0
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// logical and assignment operator
+// rest2.owner = rest2.owner && `<ANON>`;
+// rest1.owner &&= `<ANON`;
+// rest2.owner &&= `<ANON`;
+
+// <--------- Coding Challenge #1 --------->
+
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// 1. Create one player array for each team variables players1 & players 2
+
+// const [players1, players2] = game.players;
+// console.log(players1);
+// console.log(players2);
+
+// 2. The first player in any array is the goalkeeper and the others are field players. for bayern create one variable 'gk' with the remaining field players in a field players array.
+
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk);
+// console.log(fieldPlayers);
+
+// 3. create an array `allplayers` containg all players of both teams
+
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
+
+// 4. during the game bayern munich used 3 players so create a new array players 1 final containing all the original team1 players +thiago, coutinho,perisic
+
+// const players1Final = [...players1, `Thiago`, `Coutinho`, `Perisic`];
+// console.log(players1Final);
+
+// 5. based on the game.odds object, create one variable for each odd
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+
+// 6. write a function print goals that recieves an arbitrary number of a player names and prints each one of them to the console along with the number of goals that were scored in total (number of player names passed in);
+
+// const printGoals = function (...players) {
+//   console.log(`${players.length} goals were scored`);
+// };
+
+// printGoals(`Davies`, `Muller`, `Lewandowski`, `Kimmich`);
+// printGoals(`Davies`, `Kimmich`);
+// printGoals(...game.scored);
+
+// 7. The team with the lower odd is most likely to win. Print to the console which team is most likely to win, without using an if/else statement or ternary operator.
+
+// team1 < team2 && console.log(`Team 1 is more likely to win`);
+// team1 > team2 && console.log(`Team 2 is more likely to win`);
+
+// <--------- Looping Arrays: The For/Of Loop --------->
