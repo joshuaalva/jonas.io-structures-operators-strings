@@ -453,11 +453,33 @@ const restaurant = {
 
 // to check if everything existed from say an API things would get out of hand pretty quickly
 // ES2020 has a great solution for this
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
 
 // With optional chaining
 // if the property before the question mark then it will be read from there
 // if not undefined will be returned
-console.log(restaurant.openingHours.mon?.open); // undefined
-console.log(restaurant.openingHours.fri?.open); // 11
+// console.log(restaurant.openingHours.mon?.open); // undefined
+// console.log(restaurant.openingHours.fri?.open); // 11
+
+// Example
+const days = [`mon`, `tues`, `wed`, `thu`, `fri`, `sat`, `sun`];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? `closed`;
+  console.log(`On ${day} we open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? `Method does not exist`);
+
+console.log(restaurant.orderRisotto?.(0, 1) ?? `Method does not exist`);
+
+// Arrays
+const users = [{ name: `Joshua`, email: `hello@joshua.io` }];
+
+// optional chaining checks if the value on the left exists
+console.log(users[0]?.name ?? `User array empty`);
+
+// <--------- Looping Objects: Object Keys, Values, Entries --------->
+// property names are also called 'keys'
