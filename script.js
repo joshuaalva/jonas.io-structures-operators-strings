@@ -403,7 +403,7 @@ const restaurant = {
 
 // 7. The team with the lower odd is most likely to win. Print to the console which team is most likely to win, without using an if/else statement or ternary operator.
 
-// team1 < team2 && console.log(`Team 1 is more likely to win`);
-// team1 > team2 && console.log(`Team 2 is more likely to win`);
+team1 < team2 && console.log(`Team 1 is more likely to win`);
+team1 > team2 && console.log(`Team 2 is more likely to win`);
 
 // <--------- Looping Arrays: The For/Of Loop --------->
