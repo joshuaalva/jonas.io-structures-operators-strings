@@ -450,3 +450,14 @@ const restaurant = {
 // notes above
 
 // <--------- Optional Chaining ?? --------->
+
+// to check if everything existed from say an API things would get out of hand pretty quickly
+// ES2020 has a great solution for this
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// With optional chaining
+// if the property before the question mark then it will be read from there
+// if not undefined will be returned
+console.log(restaurant.openingHours.mon?.open); // undefined
+console.log(restaurant.openingHours.fri?.open); // 11
