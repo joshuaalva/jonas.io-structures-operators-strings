@@ -1,4 +1,22 @@
 'use strict';
+const weekdays = [`mon`, `tues`, `wed`, `thu`, `fri`, `sat`, `sun`];
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+
+  [weekdays[5]]: {
+    open: 0, // open 24 hours
+    close: 24,
+  },
+};
 
 // Data Structures, Modern Opreators, and Strings...
 // <--------- Destructuring Arrays --------->
@@ -10,33 +28,14 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
   // method
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
+  // ES6 Enhanced Object Literals
+  openingHours,
 
-    fri: {
-      open: 11,
-      close: 23,
-    },
-
-    sat: {
-      open: 0, // open 24 hours
-      close: 24,
-    },
-  },
-
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = `20:00`,
-    address,
-  }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = `20:00`, address }) {
     console.log(
       `Order recieved ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time} `
     );
@@ -45,8 +44,14 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pata with ${ing1}, ${ing2}, ${ing3}`);
   },
+  // <--- Old way of decalaring a method -->
 
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  // orderPizza: function (mainIngredient, ...otherIngredients) {
+  //   console.log(mainIngredient);
+  //   console.log(otherIngredients);
+
+  // <--- Enhanced ES6 --->
+  orderPizzas(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
@@ -403,7 +408,45 @@ const restaurant = {
 
 // 7. The team with the lower odd is most likely to win. Print to the console which team is most likely to win, without using an if/else statement or ternary operator.
 
-team1 < team2 && console.log(`Team 1 is more likely to win`);
-team1 > team2 && console.log(`Team 2 is more likely to win`);
+// team1 < team2 && console.log(`Team 1 is more likely to win`);
+// team1 > team2 && console.log(`Team 2 is more likely to win`);
+
+// 1. Create one player array for each team variables players1 & players 2
+
+// const [players1, players2] = game.players;
+// console.log(players1, players2);
+
+// 2. The first player in any array is the goalkeeper and the others are field players. for bayern create one variable 'gk' with the remaining field players in a field players array.
+
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk);
+// console.log(fieldPlayers);
+
+// 3. create an array `allplayers` containg all players of both teams
+// const allPlayers = [players1, players2];
+// console.log(allPlayers);
 
 // <--------- Looping Arrays: The For/Of Loop --------->
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+//for of
+
+// for (const item of menu) console.log(item);
+// item variable is always teh current element in each iteration
+// no code block needed when we only have one statement to execute
+
+// for loop
+// for (let i = 0; i < menu.length; i++) console.log(menu[i]);
+
+// what if we wanted the current index or current element
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
+
+// <--------- Enhanced Object Literals --------->
+
+// took opening hours out of the obect literal
+// notes above
+
+// <--------- Optional Chaining ?? --------->
