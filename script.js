@@ -463,23 +463,38 @@ const restaurant = {
 // console.log(restaurant.openingHours.fri?.open); // 11
 
 // Example
-const days = [`mon`, `tues`, `wed`, `thu`, `fri`, `sat`, `sun`];
+// const days = [`mon`, `tues`, `wed`, `thu`, `fri`, `sat`, `sun`];
 
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? `closed`;
-  console.log(`On ${day} we open at ${open}`);
-}
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? `closed`;
+//   console.log(`On ${day} we open at ${open}`);
+// }
 
 // Methods
-console.log(restaurant.order?.(0, 1) ?? `Method does not exist`);
+// console.log(restaurant.order?.(0, 1) ?? `Method does not exist`);
 
-console.log(restaurant.orderRisotto?.(0, 1) ?? `Method does not exist`);
+// console.log(restaurant.orderRisotto?.(0, 1) ?? `Method does not exist`);
 
 // Arrays
-const users = [{ name: `Joshua`, email: `hello@joshua.io` }];
+// const users = [{ name: `Joshua`, email: `hello@joshua.io` }];
 
 // optional chaining checks if the value on the left exists
-console.log(users[0]?.name ?? `User array empty`);
+// console.log(users[0]?.name ?? `User array empty`);
 
 // <--------- Looping Objects: Object Keys, Values, Entries --------->
-// property names are also called 'keys'
+// Property names are also called 'keys'
+// Property Names
+const properties = Object.keys(openingHours);
+console.log(properties); // is an array with three property names
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day},`;
+}
+
+console.log(openStr);
+
+// What if we wanted the values themselves
+const values = Object.values(openingHours);
+console.log(values);
