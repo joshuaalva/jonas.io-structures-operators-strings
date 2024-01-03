@@ -484,17 +484,142 @@ const restaurant = {
 // <--------- Looping Objects: Object Keys, Values, Entries --------->
 // Property names are also called 'keys'
 // Property Names
-const properties = Object.keys(openingHours);
-console.log(properties); // is an array with three property names
+// const properties = Object.keys(openingHours);
+// console.log(properties); // is an array with three property names
 
-let openStr = `We are open on ${properties.length} days: `;
+// let openStr = `We are open on ${properties.length} days: `;
 
-for (const day of properties) {
-  openStr += `${day},`;
-}
+// for (const day of properties) {
+//   openStr += `${day},`;
+// }
 
-console.log(openStr);
+// console.log(openStr);
 
 // What if we wanted the values themselves
-const values = Object.values(openingHours);
-console.log(values);
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// entries are names + values together
+// entire object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// can destructure during a for of loop
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
+
+// <--------- Coding Challenge #2 --------->
+
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// 1. Loop over the game.scored variable and print each player name to the console along with the goal number
+// for (const [i, playerScored] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1}: ${playerScored}`);
+// }
+
+// we got the for of loop correct and printed everything correctly except for the entries method to give us the actual #
+
+// 2. Use a loop to calculate the average odd and log it to the console
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) average += odd;
+// average /= odds.length;
+// console.log(average);
+
+// 3.Print the 3 odds to the console, but in a nice formatted way
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === `x` ? `draw` : `victor ${game[team]}`;
+//   console.log(`Odd of ${teamStr} ${odd}`);
+// }
+
+// <--------- Sets --------->
+
+// to create a new set write new Set and then pass it an iterable most commonly an array
+// set can hold mixed data types that is not a problem at all
+
+const ordersSet = new Set([
+  `Pasta`,
+  `Pizza`,
+  `Pizza`,
+  `Risotto`,
+  `Pasta`,
+  `Pizza`,
+]);
+
+console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Risotto`}
+// elements of a set have to be unique so duplicates will be ignored
+// just like arrays sets are also iterables
+// but very different
+// elements of a set of unique, order of values in a set are irrelevant
+// strings are also iteragles so we can do this
+console.log(new Set(`Jonas`)); // {`j`, `o`, `n` ...}
+console.log(ordersSet.size); // 3
+console.log(ordersSet.has(`Pizza`)); // true
+console.log(ordersSet.has(`Bread`)); // false
+ordersSet.add(`Garlic Bread`); // garlic bread to the set
+console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Risotto`, `Garlic Bread`}
+ordersSet.delete(`Risotto`);
+console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Garlic Bread`}
+// in sets there are no indexes
+// can also not pull values from a set
+// we just need to know if a value is there or not
+// if goal is to store value and then later retrieve it just use an array
+
+// ordersSet.clear(); // Erases Set
+// can loop over sets
+
+for (const order of ordersSet) console.log(ordersSet);
+
+// main use case of sets is to remove duplicates
+
+// Example -->
+
+const staff = [`Waiter`, `Chef`, `Waiter`, `Manager`, `Chef`, `Waiter`];
+// we want the three unique values so we create a set just to know these roles exist
+// const staffUnique = new Set(staff);
+// console.log(staffUnique);
+
+const staffUnique = [...new Set(staff)]; // can use spread operator to convert this into an array
+console.log(staffUnique);
+
+// <--------- Maps: Fundamentals --------->
