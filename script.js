@@ -654,40 +654,94 @@ const restaurant = {
 
 // <--------- Maps: Iterations --------->
 
-const question = new Map([
-  [`question`, `What is the best programming language in the world?`],
-  [1, `C`],
-  [2, `Java`],
-  [3, `JavaScript`],
-  [`correct`, 3],
-  [true, `correct!`],
-  [false, `try again!`],
-]);
+// const question = new Map([
+//   [`question`, `What is the best programming language in the world?`],
+//   [1, `C`],
+//   [2, `Java`],
+//   [3, `JavaScript`],
+//   [`correct`, 3],
+//   [true, `correct!`],
+//   [false, `try again!`],
+// ]);
 
 // when creating a new map from scratch this way is preffered
 // when we keep adding new eleements using code set method is the way to go
-console.log(question);
+// console.log(question);
 
 // convert object to map -->
-console.log(Object.entries(openingHours));
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
 
 // Quiz App
-console.log(question.get(`question`));
-for (const [key, value] of question) {
-  if (typeof key === `number`) {
-    console.log(key, value);
-  }
-}
+// console.log(question.get(`question`));
+// for (const [key, value] of question) {
+//   if (typeof key === `number`) {
+//     console.log(key, value);
+//   }
+// }
 
 // const answer = Number(prompt(`your answer`));
-const answer = 3;
-console.log(answer);
+// const answer = 3;
+// console.log(answer);
 
-console.log(question.get(question.get(`correct`) === answer));
+// console.log(question.get(question.get(`correct`) === answer));
 
 // convert map back into an array -->
-console.log([...question]);
+// console.log([...question]);
 
 // <--------- Summary: Which Data Structures Should I use??? --------->
+
+// Data Structures Overview.
+// Sources of Data
+// 1. From program itself: data written directly in source code
+// 2. From the UI: Data input from the user or data written in DOM
+// 3. From extrenal sources: Data fetched fro exxample from web API
+// >> Collection of Data >> Data Structure >> Simple List? Arrays or Sets. -- Key Value Pairs? Object or Maps.
+
+//  Arrays vs. Sets && Objects vs. Maps
+// Arrays >> Use when you need ordered list of values (might contain duplicates), use when you need to manipulate data
+// Sets >> Use when you need to work with unique values, Use when high-perforamnce is important, Use to remove duplicates from arrays
+// Objects >> more traditional, easier to write and access values with . and []
+// Maps >> Better performance, Keys can have any data type, easy to iterate, easy to compute size
+
+// <--------- Coding Challenge #3 --------->
+
+const gameEvents = new Map([
+  [17, `⚽️ Goal`],
+  [36, `🔁 Substituion`],
+  [47, `⚽️ Goal`],
+  [61, `🔁 Substituion`],
+  [64, `🟨 Yellow Card`],
+  [69, `🟥 Red Card`],
+  [70, `🔁 Substituion`],
+  [72, `🔁 Substituion`],
+  [76, `⚽️ Goal`],
+  [80, `⚽️ Goal`],
+  [93, `🟨 Yellow Card`],
+]);
+
+// 1. Create an array 'events' of the different game events that happened (no duplicates)
+
+const events = [...new Set(gameEvents.values())];
+console.log(...[events]);
+
+// 2. After the game has finished, it was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+
+gameEvents.delete(69); // delete key 69.
+// console.log(gameEvents); // red card deleted check
+
+// 3. Compute and log the following string to the console: `an event happened, on average, every 9 minutes`
+
+console.log(
+  `an event happened, on average, every ${90 / gameEvents.size} minutes`
+);
+
+// 4. Loop over 'gameEvents' and log each element to the console, marking wehther it's in the first half or second half of the game, like this: [first half]17: goal
+
+for (const [minute, event] of gameEvents) {
+  const half = minute <= 45 ? `First` : `Second`;
+  console.log(`[${half} Half] ${minute}:${event}`);
+}
+
+// <--------- Working with Strings - Part 1  --------->
