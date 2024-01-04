@@ -577,29 +577,29 @@ const restaurant = {
 // to create a new set write new Set and then pass it an iterable most commonly an array
 // set can hold mixed data types that is not a problem at all
 
-const ordersSet = new Set([
-  `Pasta`,
-  `Pizza`,
-  `Pizza`,
-  `Risotto`,
-  `Pasta`,
-  `Pizza`,
-]);
+// const ordersSet = new Set([
+//   `Pasta`,
+//   `Pizza`,
+//   `Pizza`,
+//   `Risotto`,
+//   `Pasta`,
+//   `Pizza`,
+// ]);
 
-console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Risotto`}
+// console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Risotto`}
 // elements of a set have to be unique so duplicates will be ignored
 // just like arrays sets are also iterables
 // but very different
 // elements of a set of unique, order of values in a set are irrelevant
 // strings are also iteragles so we can do this
-console.log(new Set(`Jonas`)); // {`j`, `o`, `n` ...}
-console.log(ordersSet.size); // 3
-console.log(ordersSet.has(`Pizza`)); // true
-console.log(ordersSet.has(`Bread`)); // false
-ordersSet.add(`Garlic Bread`); // garlic bread to the set
-console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Risotto`, `Garlic Bread`}
-ordersSet.delete(`Risotto`);
-console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Garlic Bread`}
+// console.log(new Set(`Jonas`)); // {`j`, `o`, `n` ...}
+// console.log(ordersSet.size); // 3
+// console.log(ordersSet.has(`Pizza`)); // true
+// console.log(ordersSet.has(`Bread`)); // false
+// ordersSet.add(`Garlic Bread`); // garlic bread to the set
+// console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Risotto`, `Garlic Bread`}
+// ordersSet.delete(`Risotto`);
+// console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Garlic Bread`}
 // in sets there are no indexes
 // can also not pull values from a set
 // we just need to know if a value is there or not
@@ -608,19 +608,19 @@ console.log(ordersSet); // Set(3) {`Pasta`, `Pizza`, `Garlic Bread`}
 // ordersSet.clear(); // Erases Set
 // can loop over sets
 
-for (const order of ordersSet) console.log(ordersSet);
+// for (const order of ordersSet) console.log(ordersSet);
 
 // main use case of sets is to remove duplicates
 
 // Example -->
 
-const staff = [`Waiter`, `Chef`, `Waiter`, `Manager`, `Chef`, `Waiter`];
+// const staff = [`Waiter`, `Chef`, `Waiter`, `Manager`, `Chef`, `Waiter`];
 // we want the three unique values so we create a set just to know these roles exist
 // const staffUnique = new Set(staff);
 // console.log(staffUnique);
 
-const staffUnique = [...new Set(staff)]; // can use spread operator to convert this into an array
-console.log(staffUnique);
+// const staffUnique = [...new Set(staff)]; // can use spread operator to convert this into an array
+// console.log(staffUnique);
 
 // <--------- Maps: Fundamentals --------->
 
@@ -629,27 +629,65 @@ console.log(staffUnique);
 // in maps the keys can have any type
 // objects, arrays, other maps... can be keys
 
-const rest = new Map();
-rest.set(`name`, `Classico Italiano`);
-rest.set(1, `Firenze, Italy`);
-rest.set(2, `Lisbon, Portrugal`);
+// const rest = new Map();
+// rest.set(`name`, `Classico Italiano`);
+// rest.set(1, `Firenze, Italy`);
+// rest.set(2, `Lisbon, Portrugal`);
 // shows map as it is updating --> if i were to console log here it would show Map(3)
-rest
-  .set(`categories`, [`Italian`, `Pizzeria`, `Vegetarian`, `Organic`])
-  .set(`open`, 11)
-  .set(`close`, 23)
-  .set(true, `We are open`)
-  .set(false, `We are closed`);
-console.log(rest.get(`name`));
-console.log(rest.get(true)); // data type of the key does matter
+// rest
+//   .set(`categories`, [`Italian`, `Pizzeria`, `Vegetarian`, `Organic`])
+//   .set(`open`, 11)
+//   .set(`close`, 23)
+//   .set(true, `We are open`)
+//   .set(false, `We are closed`);
+// console.log(rest.get(`name`));
+// console.log(rest.get(true)); // data type of the key does matter
 
-const time = 21;
+// const time = 21;
 // rest.get(time > rest.get(`open`) && time < rest.get(`close`));
 
-console.log(rest.has(`categories`));
-rest.delete(2);
-console.log(rest); // removes 2 'lisbon, portugal'
-console.log(rest.size);
+// console.log(rest.has(`categories`));
+// rest.delete(2);
+// console.log(rest); // removes 2 'lisbon, portugal'
+// console.log(rest.size);
 // rest.clear(); // clears map
 
 // <--------- Maps: Iterations --------->
+
+const question = new Map([
+  [`question`, `What is the best programming language in the world?`],
+  [1, `C`],
+  [2, `Java`],
+  [3, `JavaScript`],
+  [`correct`, 3],
+  [true, `correct!`],
+  [false, `try again!`],
+]);
+
+// when creating a new map from scratch this way is preffered
+// when we keep adding new eleements using code set method is the way to go
+console.log(question);
+
+// convert object to map -->
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+// Quiz App
+console.log(question.get(`question`));
+for (const [key, value] of question) {
+  if (typeof key === `number`) {
+    console.log(key, value);
+  }
+}
+
+// const answer = Number(prompt(`your answer`));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get(`correct`) === answer));
+
+// convert map back into an array -->
+console.log([...question]);
+
+// <--------- Summary: Which Data Structures Should I use??? --------->
