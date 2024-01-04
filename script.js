@@ -623,3 +623,33 @@ const staffUnique = [...new Set(staff)]; // can use spread operator to convert t
 console.log(staffUnique);
 
 // <--------- Maps: Fundamentals --------->
+
+// maps are a lot more useful than sets
+// in js a map is a data structure that we can use to map values to keys
+// in maps the keys can have any type
+// objects, arrays, other maps... can be keys
+
+const rest = new Map();
+rest.set(`name`, `Classico Italiano`);
+rest.set(1, `Firenze, Italy`);
+rest.set(2, `Lisbon, Portrugal`);
+// shows map as it is updating --> if i were to console log here it would show Map(3)
+rest
+  .set(`categories`, [`Italian`, `Pizzeria`, `Vegetarian`, `Organic`])
+  .set(`open`, 11)
+  .set(`close`, 23)
+  .set(true, `We are open`)
+  .set(false, `We are closed`);
+console.log(rest.get(`name`));
+console.log(rest.get(true)); // data type of the key does matter
+
+const time = 21;
+// rest.get(time > rest.get(`open`) && time < rest.get(`close`));
+
+console.log(rest.has(`categories`));
+rest.delete(2);
+console.log(rest); // removes 2 'lisbon, portugal'
+console.log(rest.size);
+// rest.clear(); // clears map
+
+// <--------- Maps: Iterations --------->
