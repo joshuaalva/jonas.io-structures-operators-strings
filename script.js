@@ -707,41 +707,86 @@ const restaurant = {
 
 // <--------- Coding Challenge #3 --------->
 
-const gameEvents = new Map([
-  [17, `⚽️ Goal`],
-  [36, `🔁 Substituion`],
-  [47, `⚽️ Goal`],
-  [61, `🔁 Substituion`],
-  [64, `🟨 Yellow Card`],
-  [69, `🟥 Red Card`],
-  [70, `🔁 Substituion`],
-  [72, `🔁 Substituion`],
-  [76, `⚽️ Goal`],
-  [80, `⚽️ Goal`],
-  [93, `🟨 Yellow Card`],
-]);
+// const gameEvents = new Map([
+//   [17, `⚽️ Goal`],
+//   [36, `🔁 Substituion`],
+//   [47, `⚽️ Goal`],
+//   [61, `🔁 Substituion`],
+//   [64, `🟨 Yellow Card`],
+//   [69, `🟥 Red Card`],
+//   [70, `🔁 Substituion`],
+//   [72, `🔁 Substituion`],
+//   [76, `⚽️ Goal`],
+//   [80, `⚽️ Goal`],
+//   [93, `🟨 Yellow Card`],
+// ]);
 
 // 1. Create an array 'events' of the different game events that happened (no duplicates)
 
-const events = [...new Set(gameEvents.values())];
-console.log(...[events]);
+// const events = [...new Set(gameEvents.values())];
+// console.log(...[events]);
 
 // 2. After the game has finished, it was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
 
-gameEvents.delete(69); // delete key 69.
+// gameEvents.delete(69); // delete key 69.
 // console.log(gameEvents); // red card deleted check
 
 // 3. Compute and log the following string to the console: `an event happened, on average, every 9 minutes`
 
-console.log(
-  `an event happened, on average, every ${90 / gameEvents.size} minutes`
-);
+// console.log(
+//   `an event happened, on average, every ${90 / gameEvents.size} minutes`
+// );
 
 // 4. Loop over 'gameEvents' and log each element to the console, marking wehther it's in the first half or second half of the game, like this: [first half]17: goal
 
-for (const [minute, event] of gameEvents) {
-  const half = minute <= 45 ? `First` : `Second`;
-  console.log(`[${half} Half] ${minute}:${event}`);
-}
+// for (const [minute, event] of gameEvents) {
+//   const half = minute <= 45 ? `First` : `Second`;
+//   console.log(`[${half} Half] ${minute}:${event}`);
+// }
 
 // <--------- Working with Strings - Part 1  --------->
+
+const airline = `TAP Air Portugal`;
+const plane = `A320`;
+
+console.log(plane[0]); // A
+console.log(`B737`[0]); // B
+console.log(airline.length); // 16
+console.log(`B737`.length); // 4
+
+console.log(airline.indexOf('r')); // 6 // gives us first instance of
+console.log(airline.lastIndexOf('r')); // 10 // last index of
+console.log(airline.indexOf(`Portugal`)); // 8 // can look for entire words // -1 means cannot be found
+
+console.log(airline.slice(4)); // position at which extraction would start --> 4 cuts out TAP // AIR Portugal (sub-string)
+// to use this string we would have to store it first
+// .slice does not mutate the original string
+
+console.log(airline.slice(4, 7)); // Air
+
+console.log(airline.slice(0, airline.indexOf(` `))); // gives you the first instance of a space this is after the [2] index // TAP
+console.log(airline.slice(airline.lastIndexOf(` `) + 1)); // +1 removes the space in the front of portugal
+
+console.log(airline.slice(-2)); //al
+console.log(airline.slice(1, -1)); // AP Air Portuga // -1 cuts the last character 1 starts at A
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const checkSeat = seat.slice(-1);
+  if (checkSeat === `B` || checkSeat === `E`)
+    console.log(`you got the middle seat ☹️`);
+  else console.log(`You got lucky 😊`);
+};
+
+checkMiddleSeat(`11B`);
+checkMiddleSeat(`23C`);
+checkMiddleSeat(`3E`);
+
+// strings are just primitives
+// whenever we call a method on a string javascript will convert a string primitive to a string object and that's where the methods are called
+// it is called boxing >> which is the object
+
+console.log(new String(`jonas`));
+console.log(typeof new String(`jonas`)); //object
+
+// <--------- Working with Strings - Part 2 --------->
