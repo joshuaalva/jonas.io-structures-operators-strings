@@ -808,12 +808,40 @@ console.log(airline.toUpperCase());
 // Capitalize just the first letter of the first name
 // Return new name
 
-function correctName(passenger) {
-  const lowerCase = passenger.toLowerCase();
-  const passengerCorrect = lowerCase[0].toUpperCase() + lowerCase.slice(1);
-  console.log(passengerCorrect);
-}
+// function correctName(passenger) {
+//   const lowerCase = passenger.toLowerCase();
+//   const passengerCorrect = lowerCase[0].toUpperCase() + lowerCase.slice(1);
+//   console.log(passengerCorrect);
+// }
 
-correctName(`joshua`); // Joshua
-correctName(`lizzie`); // Lizzie
-correctName(`MiChAeL`); // Michael
+// correctName(`joshua`); // Joshua
+// correctName(`lizzie`); // Lizzie
+// correctName(`MiChAeL`); // Michael
+
+// Comparing email
+const email = `hello@jonas.io`;
+const loginEmail = `   Hello@Jonas.Io \n`;
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// since 2019 there are trim start and trim end which do exactly what it sounds like they do...
+
+// Replacing -->
+const priceGB = `288,97£`;
+console.log(priceGB);
+const priceUS = priceGB.replace(`£`, `$`).replace(`,`, `.`);
+console.log(priceUS); //288.97$
+
+const announcment = `All passenger come to boarding door 23. Boarding door 23`;
+console.log(announcment.replaceAll(`door`, `gate`)); // All passenger come to boarding gate 23. Boarding door 23
+
+// Only replaces first occurence that's how it works
+// replace all now working!!
+// Booleans -->
+console.log(plane.includes(`A320`)); // true
+console.log(plane.includes(`Boeng`)); // false
+console.log(plane.startsWith(`Air`)); // false
