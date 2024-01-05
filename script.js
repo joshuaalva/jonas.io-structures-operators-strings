@@ -790,3 +790,30 @@ console.log(new String(`jonas`));
 console.log(typeof new String(`jonas`)); //object
 
 // <--------- Working with Strings - Part 2 --------->
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix Capitalization in name
+// const passenger = `jOnas`;
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1); // slice remove the lowercase j
+// console.log(passengerCorrect);
+
+// Practice -->
+// Build a function that fixes capitalization in names
+
+// takes name and places it into all lower case
+// Capitalize just the first letter of the first name
+// Return new name
+
+function correctName(passenger) {
+  const lowerCase = passenger.toLowerCase();
+  const passengerCorrect = lowerCase[0].toUpperCase() + lowerCase.slice(1);
+  console.log(passengerCorrect);
+}
+
+correctName(`joshua`); // Joshua
+correctName(`lizzie`); // Lizzie
+correctName(`MiChAeL`); // Michael
