@@ -841,7 +841,27 @@ console.log(announcment.replaceAll(`door`, `gate`)); // All passenger come to bo
 
 // Only replaces first occurence that's how it works
 // replace all now working!!
+
 // Booleans -->
 console.log(plane.includes(`A320`)); // true
 console.log(plane.includes(`Boeng`)); // false
 console.log(plane.startsWith(`Air`)); // false
+
+if (plane.startsWith(`Airbus`) && plane.endsWith(`neo`)) {
+  console.log(`Part of the NEW Airbus family`);
+}
+
+// Practice Excercise
+const checkBaggage = function (items) {
+  // lowercase makes things easier to compare!
+  const baggage = items.toLowerCase();
+  if (baggage.includes(`knife`) || baggage.includes(`gun`)) {
+    console.log(`You are not allowed aboard`);
+  } else {
+    console.log(`Welcome aboard!`);
+  }
+};
+
+checkBaggage(`I have a laptop, some food, and a pocket Knife`);
+checkBaggage(`Socks and Camera`);
+checkBaggage(`Snacks and a gun for protection`);
