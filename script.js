@@ -746,53 +746,53 @@ const restaurant = {
 
 // <--------- Working with Strings - Part 1  --------->
 
-const airline = `TAP Air Portugal`;
-const plane = `A320`;
+// const airline = `TAP Air Portugal`;
+// const plane = `A320`;
 
-console.log(plane[0]); // A
-console.log(`B737`[0]); // B
-console.log(airline.length); // 16
-console.log(`B737`.length); // 4
+// console.log(plane[0]); // A
+// console.log(`B737`[0]); // B
+// console.log(airline.length); // 16
+// console.log(`B737`.length); // 4
 
-console.log(airline.indexOf('r')); // 6 // gives us first instance of
-console.log(airline.lastIndexOf('r')); // 10 // last index of
-console.log(airline.indexOf(`Portugal`)); // 8 // can look for entire words // -1 means cannot be found
+// console.log(airline.indexOf('r')); // 6 // gives us first instance of
+// console.log(airline.lastIndexOf('r')); // 10 // last index of
+// console.log(airline.indexOf(`Portugal`)); // 8 // can look for entire words // -1 means cannot be found
 
-console.log(airline.slice(4)); // position at which extraction would start --> 4 cuts out TAP // AIR Portugal (sub-string)
+// console.log(airline.slice(4)); // position at which extraction would start --> 4 cuts out TAP // AIR Portugal (sub-string)
 // to use this string we would have to store it first
 // .slice does not mutate the original string
 
-console.log(airline.slice(4, 7)); // Air
+// console.log(airline.slice(4, 7)); // Air
 
-console.log(airline.slice(0, airline.indexOf(` `))); // gives you the first instance of a space this is after the [2] index // TAP
-console.log(airline.slice(airline.lastIndexOf(` `) + 1)); // +1 removes the space in the front of portugal
+// console.log(airline.slice(0, airline.indexOf(` `))); // gives you the first instance of a space this is after the [2] index // TAP
+// console.log(airline.slice(airline.lastIndexOf(` `) + 1)); // +1 removes the space in the front of portugal
 
-console.log(airline.slice(-2)); //al
-console.log(airline.slice(1, -1)); // AP Air Portuga // -1 cuts the last character 1 starts at A
+// console.log(airline.slice(-2)); //al
+// console.log(airline.slice(1, -1)); // AP Air Portuga // -1 cuts the last character 1 starts at A
 
-const checkMiddleSeat = function (seat) {
-  // B and E are middle seats
-  const checkSeat = seat.slice(-1);
-  if (checkSeat === `B` || checkSeat === `E`)
-    console.log(`you got the middle seat ☹️`);
-  else console.log(`You got lucky 😊`);
-};
+// const checkMiddleSeat = function (seat) {
+// B and E are middle seats
+//   const checkSeat = seat.slice(-1);
+//   if (checkSeat === `B` || checkSeat === `E`)
+//     console.log(`you got the middle seat ☹️`);
+//   else console.log(`You got lucky 😊`);
+// };
 
-checkMiddleSeat(`11B`);
-checkMiddleSeat(`23C`);
-checkMiddleSeat(`3E`);
+// checkMiddleSeat(`11B`);
+// checkMiddleSeat(`23C`);
+// checkMiddleSeat(`3E`);
 
 // strings are just primitives
 // whenever we call a method on a string javascript will convert a string primitive to a string object and that's where the methods are called
 // it is called boxing >> which is the object
 
-console.log(new String(`jonas`));
-console.log(typeof new String(`jonas`)); //object
+// console.log(new String(`jonas`));
+// console.log(typeof new String(`jonas`)); //object
 
 // <--------- Working with Strings - Part 2 --------->
 
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
 // Fix Capitalization in name
 // const passenger = `jOnas`;
@@ -819,49 +819,75 @@ console.log(airline.toUpperCase());
 // correctName(`MiChAeL`); // Michael
 
 // Comparing email
-const email = `hello@jonas.io`;
-const loginEmail = `   Hello@Jonas.Io \n`;
+// const email = `hello@jonas.io`;
+// const loginEmail = `   Hello@Jonas.Io \n`;
 
 // const lowerEmail = loginEmail.toLowerCase();
 // const trimmedEmail = lowerEmail.trim();
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(normalizedEmail);
-console.log(email === normalizedEmail);
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+// console.log(email === normalizedEmail);
 
 // since 2019 there are trim start and trim end which do exactly what it sounds like they do...
 
 // Replacing -->
-const priceGB = `288,97£`;
-console.log(priceGB);
-const priceUS = priceGB.replace(`£`, `$`).replace(`,`, `.`);
-console.log(priceUS); //288.97$
+// const priceGB = `288,97£`;
+// console.log(priceGB);
+// const priceUS = priceGB.replace(`£`, `$`).replace(`,`, `.`);
+// console.log(priceUS); //288.97$
 
-const announcment = `All passenger come to boarding door 23. Boarding door 23`;
-console.log(announcment.replaceAll(`door`, `gate`)); // All passenger come to boarding gate 23. Boarding door 23
+// const announcment = `All passenger come to boarding door 23. Boarding door 23`;
+// console.log(announcment.replaceAll(`door`, `gate`)); // All passenger come to boarding gate 23. Boarding door 23
 
 // Only replaces first occurence that's how it works
 // replace all now working!!
 
 // Booleans -->
-console.log(plane.includes(`A320`)); // true
-console.log(plane.includes(`Boeng`)); // false
-console.log(plane.startsWith(`Air`)); // false
+// console.log(plane.includes(`A320`)); // true
+// console.log(plane.includes(`Boeng`)); // false
+// console.log(plane.startsWith(`Air`)); // false
 
-if (plane.startsWith(`Airbus`) && plane.endsWith(`neo`)) {
-  console.log(`Part of the NEW Airbus family`);
-}
+// if (plane.startsWith(`Airbus`) && plane.endsWith(`neo`)) {
+//   console.log(`Part of the NEW Airbus family`);
+// }
 
 // Practice Excercise
-const checkBaggage = function (items) {
-  // lowercase makes things easier to compare!
-  const baggage = items.toLowerCase();
-  if (baggage.includes(`knife`) || baggage.includes(`gun`)) {
-    console.log(`You are not allowed aboard`);
-  } else {
-    console.log(`Welcome aboard!`);
+// const checkBaggage = function (items) {
+// lowercase makes things easier to compare!
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes(`knife`) || baggage.includes(`gun`)) {
+//     console.log(`You are not allowed aboard!`);
+//   } else {
+//     console.log(`Welcome aboard!`);
+//   }
+// };
+
+// checkBaggage(`I have a laptop, some food, and a pocket Knife`);
+// checkBaggage(`Socks and Camera`);
+// checkBaggage(`Snacks and a gun for protection`);
+
+// <--------- Working with Strings - Part 3 --------->
+
+// Split and Join -->
+console.log(`a+very+nice+string`.split(`+`));
+// (4) ['a', 'very', 'nice', 'string']
+console.log(`Jonas Schmedtmann`.split(` `));
+// 2) ['Jonas', 'Schmedtmann']
+const [firstName, lastName] = `Jonas Schmedtmann`.split(` `);
+
+const newName = [`Mr`, firstName, lastName.toUpperCase()].join(` `);
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(` `); // split by the space
+  const capitalizedName = [];
+
+  for (const n of names) {
+    capitalizedName.push(n[0].toUpperCase() + n.slice(1));
   }
+  console.log(capitalizedName.join(` `));
 };
 
-checkBaggage(`I have a laptop, some food, and a pocket Knife`);
-checkBaggage(`Socks and Camera`);
-checkBaggage(`Snacks and a gun for protection`);
+const passenger = `Jessica Ann Smith Davis`;
+capitalizeName(`joshua alvarado`);
+capitalizeName(`lissandra pereira`);
