@@ -869,25 +869,55 @@ const restaurant = {
 // <--------- Working with Strings - Part 3 --------->
 
 // Split and Join -->
-console.log(`a+very+nice+string`.split(`+`));
+// console.log(`a+very+nice+string`.split(`+`));
 // (4) ['a', 'very', 'nice', 'string']
-console.log(`Jonas Schmedtmann`.split(` `));
+// console.log(`Jonas Schmedtmann`.split(` `));
 // 2) ['Jonas', 'Schmedtmann']
-const [firstName, lastName] = `Jonas Schmedtmann`.split(` `);
+// const [firstName, lastName] = `Jonas Schmedtmann`.split(` `);
 
-const newName = [`Mr`, firstName, lastName.toUpperCase()].join(` `);
-console.log(newName);
+// const newName = [`Mr`, firstName, lastName.toUpperCase()].join(` `);
+// console.log(newName);
 
-const capitalizeName = function (name) {
-  const names = name.split(` `); // split by the space
-  const capitalizedName = [];
+// const capitalizeName = function (name) {
+//   const names = name.split(` `); // split by the space
+//   const capitalizedName = [];
 
-  for (const n of names) {
-    capitalizedName.push(n[0].toUpperCase() + n.slice(1));
-  }
-  console.log(capitalizedName.join(` `));
-};
+//   for (const n of names) {
+//     capitalizedName.push(n[0].toUpperCase() + n.slice(1));
+//   }
+//   console.log(capitalizedName.join(` `));
+// };
 
-const passenger = `Jessica Ann Smith Davis`;
-capitalizeName(`joshua alvarado`);
-capitalizeName(`lissandra pereira`);
+// const passenger = `Jessica Ann Smith Davis`;
+// capitalizeName(`joshua alvarado`);
+// capitalizeName(`lissandra pereira`);
+
+// Padding Method
+// const message = `Go to gate 23!`;
+// console.log(message.padStart(25, `/`)); ///////////Go to gate 23!
+// console.log(message.padStart(25, `/`).length); // 25
+// can also pad the end of the string
+
+// const maskCreditCard = function (number) {
+// have to convert number to a string
+// can also use const str = String();
+//   const str = number + ``; // will turn number into string // when a number of an operant is a string it becomes a string
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, `*`);
+// };
+
+// console.log(maskCreditCard(4060758899084567)); //************4567
+
+// Repeat Method
+// Repeats the same string multiple times
+// const msg = `Bad Weather... All Departues Delayed... `;
+// console.log(msg.repeat(5)); // repeats the message 5 times
+
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${`🛩️ `.repeat(n)}`);
+// };
+
+// planesInLine(5); // There are 5 planes in line 🛩️ 🛩️ 🛩️ 🛩️ 🛩️
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+// Coding Challenge #4
